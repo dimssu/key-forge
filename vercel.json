@@ -3,12 +3,142 @@
   "framework": "nextjs",
   "buildCommand": "pnpm build",
   "installCommand": "pnpm install --frozen-lockfile=false",
+  "regions": ["iad1"],
+  "functions": {
+    "app/api/proxy/[provider]/route.ts": {
+      "maxDuration": 30,
+      "memory": 512
+    },
+    "app/api/og/route.tsx": {
+      "maxDuration": 10
+    },
+    "app/api/status/route.ts": {
+      "maxDuration": 15
+    },
+    "app/api/share/route.ts": {
+      "maxDuration": 5
+    },
+    "app/api/reminder/route.ts": {
+      "maxDuration": 10
+    },
+    "app/api/reminder/confirm/route.ts": {
+      "maxDuration": 5
+    },
+    "app/api/collections/[provider]/[format]/route.ts": {
+      "maxDuration": 5
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
+        { "key": "X-Robots-Tag", "value": "all" },
+        { "key": "X-DNS-Prefetch-Control", "value": "on" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400" },
         { "key": "X-Robots-Tag", "value": "all" }
       ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/.well-known/security.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/security.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/api/og(/.*)?",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/api/status",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=300, stale-while-revalidate=600" }
+      ]
+    },
+    {
+      "source": "/api/proxy/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/share/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/.well-known/llms.txt",
+      "destination": "/llms.txt"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/test/openai",
+      "destination": "/test/openai-api-key",
+      "permanent": true
+    },
+    {
+      "source": "/test/anthropic",
+      "destination": "/test/anthropic-api-key",
+      "permanent": true
+    },
+    {
+      "source": "/test/gemini",
+      "destination": "/test/gemini-api-key",
+      "permanent": true
+    },
+    {
+      "source": "/openai",
+      "destination": "/test/openai-api-key",
+      "permanent": true
+    },
+    {
+      "source": "/anthropic",
+      "destination": "/test/anthropic-api-key",
+      "permanent": true
+    },
+    {
+      "source": "/gemini",
+      "destination": "/test/gemini-api-key",
+      "permanent": true
     }
   ]
 }
