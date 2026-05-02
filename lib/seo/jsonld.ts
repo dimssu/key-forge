@@ -29,10 +29,10 @@ export function organization() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "KeyForge",
-    alternateName: "KeyForge LLM API Key Tester",
+    name: "APIKit",
+    alternateName: "APIKit LLM API Key Tester",
     description:
-      "Free, open-source developer tool for testing Large Language Model (LLM) API keys. Unrelated to the KeyForge trading card game.",
+      "Free, open-source developer toolkit for testing Large Language Model (LLM) API keys.",
     url: siteUrl(),
     logo: siteUrl("/favicon.svg"),
     sameAs: ["https://github.com/dimssu/key-forge"],
@@ -43,8 +43,8 @@ export function website() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "KeyForge",
-    alternateName: "KeyForge — LLM API Key Tester",
+    name: "APIKit",
+    alternateName: "APIKit — LLM API Key Tester",
     url: siteUrl(),
     description:
       "Free LLM API key tester for OpenAI, Anthropic, Gemini, Groq, and 13 more providers.",
@@ -65,8 +65,8 @@ export function softwareApp() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "KeyForge",
-    alternateName: "KeyForge LLM API Key Tester",
+    name: "APIKit",
+    alternateName: "APIKit LLM API Key Tester",
     description:
       "Free, universal LLM API key tester. Validate keys for OpenAI, Anthropic, Gemini, Groq, Mistral, and 12 more providers in seconds. Lists accessible models, benchmarks latency, and generates code snippets. Open source, no signup.",
     applicationCategory: "DeveloperApplication",
@@ -89,7 +89,8 @@ export function softwareApp() {
       "check Gemini API key",
       "Claude API key test",
       "Groq API key validator",
-      "developer tool",
+      "developer toolkit",
+      "API kit",
       "API key validation",
       ...PROVIDERS_LIST.map((p) => `${p} API`),
     ].join(", "),

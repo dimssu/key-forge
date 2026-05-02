@@ -234,7 +234,7 @@ export default function ProviderTestPage({ params }: Params) {
               description: `Verify a ${adapter.name} API key works and list the models it can call.`,
               steps: [
                 { name: "Get a key", text: `Sign in at ${adapter.consoleUrl} and create an API key.` },
-                { name: "Paste the key", text: "Paste it into the KeyForge tester field." },
+                { name: "Paste the key", text: "Paste it into the APIKit tester field." },
                 { name: "Run", text: "Press ⌘+Enter or click Test key. We'll validate, list models, and time the call." },
               ],
             })

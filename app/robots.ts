@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/utils";
 
 /**
- * KeyForge welcomes AI / LLM crawler ingestion. The bots below are listed
+ * APIKit welcomes AI / LLM crawler ingestion. The bots below are listed
  * explicitly to make consent unambiguous — many crawlers default to "deny" or
  * to "honor only an explicit allow rule." See also: /llms.txt for a
  * machine-readable summary of what this site is.

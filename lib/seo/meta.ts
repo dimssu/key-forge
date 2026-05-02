@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { siteUrl } from "../utils";
 
-const baseTitle = "KeyForge — Free LLM API Key Tester (OpenAI, Anthropic, Gemini)";
+const baseTitle = "APIKit — Free LLM API Key Tester (OpenAI, Anthropic, Gemini)";
 const baseDescription =
-  "Free, open-source developer tool: paste an LLM API key, instantly verify it works, list accessible models, benchmark latency. Supports OpenAI, Anthropic, Gemini, Groq + 13 more. No signup. (Not the card game.)";
+  "Free, open-source developer toolkit: paste an LLM API key, instantly verify it works, list accessible models, benchmark latency. Supports OpenAI, Anthropic, Gemini, Groq + 13 more. No signup.";
 const baseKeywords = [
   "LLM API key tester",
   "test OpenAI API key",
@@ -13,7 +13,8 @@ const baseKeywords = [
   "Groq API key validator",
   "Mistral API key test",
   "API key validator",
-  "developer tool",
+  "developer toolkit",
+  "API kit",
 ];
 
 export interface BuildMetadataArgs {
@@ -37,7 +38,7 @@ export function buildMetadata({
   published,
   updated,
 }: BuildMetadataArgs = {}): Metadata {
-  const fullTitle = title ? `${title} | KeyForge LLM Tester` : baseTitle;
+  const fullTitle = title ? `${title} | APIKit` : baseTitle;
   const desc = description ?? baseDescription;
   const url = siteUrl(path);
   const og =
@@ -49,16 +50,16 @@ export function buildMetadata({
     keywords: allKeywords,
     metadataBase: new URL(siteUrl()),
     alternates: { canonical: url },
-    applicationName: "KeyForge",
-    authors: [{ name: "KeyForge contributors", url: "https://github.com/dimssu/key-forge" }],
+    applicationName: "APIKit",
+    authors: [{ name: "APIKit contributors", url: "https://github.com/dimssu/key-forge" }],
     category: "Developer Tools",
     openGraph: {
       title: fullTitle,
       description: desc,
       url,
-      siteName: "KeyForge — LLM API Key Tester",
+      siteName: "APIKit — LLM API Key Tester",
       type,
-      images: [{ url: og, width: 1200, height: 630, alt: "KeyForge — LLM API Key Tester" }],
+      images: [{ url: og, width: 1200, height: 630, alt: "APIKit — LLM API Key Tester" }],
       ...(published ? { publishedTime: published } : {}),
       ...(updated ? { modifiedTime: updated } : {}),
     },
@@ -70,8 +71,8 @@ export function buildMetadata({
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     other: {
-      "application-name": "KeyForge",
-      "apple-mobile-web-app-title": "KeyForge",
+      "application-name": "APIKit",
+      "apple-mobile-web-app-title": "APIKit",
     },
   };
 }

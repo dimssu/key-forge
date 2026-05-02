@@ -45,7 +45,7 @@ export function Footer() {
           <div className="space-y-3">
             <Wordmark className="text-2xl" />
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Test any LLM API key in seconds. Free, open source, zero signup.
+              Free, open-source toolkit for testing LLM API keys. No signup.
             </p>
             <p className="font-mono text-[0.7rem] text-muted-foreground/60">
               keyforge.dimssu.com
@@ -60,14 +60,14 @@ export function Footer() {
       {/* big visible wordmark */}
       <div className="container overflow-hidden pb-6 pt-2 select-none" aria-hidden>
         <div className="text-[18vw] font-semibold leading-[0.85] tracking-[-0.05em] bg-gradient-to-b from-foreground/[0.07] to-transparent bg-clip-text text-transparent">
-          keyforge
+          apikit
         </div>
       </div>
 
       <div className="border-t border-border/60">
         <div className="container flex flex-col items-start justify-between gap-2 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>MIT licensed &middot; built for developers shipping with LLMs.</p>
-          <p className="font-mono text-[0.7rem]">© {new Date().getFullYear()} KeyForge contributors</p>
+          <p className="font-mono text-[0.7rem]">© {new Date().getFullYear()} APIKit contributors</p>
         </div>
       </div>
     </footer>

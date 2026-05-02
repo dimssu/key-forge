@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo/meta";
 export const metadata = buildMetadata({
   title: "Bulk LLM API key tester",
   description:
-    "Paste many LLM API keys at once. KeyForge detects each provider, validates every key, and exports the results to CSV.",
+    "Paste many LLM API keys at once. APIKit detects each provider, validates every key, and exports the results to CSV.",
   path: "/bulk",
 });
 

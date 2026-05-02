@@ -21,7 +21,7 @@ export function Navbar() {
           <Link
             href="/"
             className="group flex items-center gap-2 text-[15px]"
-            aria-label="KeyForge home"
+            aria-label="APIKit home"
           >
             <Wordmark />
           </Link>

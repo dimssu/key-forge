@@ -8,28 +8,28 @@ import { faqPage, softwareApp } from "@/lib/seo/jsonld";
 
 const HOMEPAGE_FAQS = [
   {
-    q: "What is KeyForge?",
-    a: "KeyForge is a free, open-source developer tool that tests Large Language Model (LLM) API keys. Paste a key from OpenAI, Anthropic, Google Gemini, Groq, Mistral, Cohere, DeepSeek, xAI, Perplexity, Together AI, Fireworks AI, OpenRouter, Azure OpenAI, AWS Bedrock, Hugging Face, Replicate, or a local Ollama host, and KeyForge verifies the key works, lists every model it can call, benchmarks request latency, and generates ready-to-use cURL, Python, and Node.js snippets.",
+    q: "What is APIKit?",
+    a: "APIKit is a free, open-source developer toolkit for testing Large Language Model (LLM) API keys. Paste a key from OpenAI, Anthropic, Google Gemini, Groq, Mistral, Cohere, DeepSeek, xAI, Perplexity, Together AI, Fireworks AI, OpenRouter, Azure OpenAI, AWS Bedrock, Hugging Face, Replicate, or a local Ollama host, and APIKit verifies the key works, lists every model it can call, benchmarks request latency, and generates ready-to-use cURL, Python, and Node.js snippets.",
   },
   {
-    q: "Is KeyForge related to the KeyForge card game?",
-    a: "No. This site is a developer tool for testing LLM API keys. It is unrelated to the trading card game KeyForge published by Asmodee / Fantasy Flight Games. The naming overlap is coincidental.",
-  },
-  {
-    q: "What does KeyForge do with my API key?",
+    q: "What does APIKit do with my API key?",
     a: "Nothing — beyond forwarding it once to the upstream provider so we can read the response. The proxy is stateless: keys are never logged, stored, or persisted. There is no database, no analytics on key values, and no third-party scripts. The full code is open source on GitHub.",
   },
   {
-    q: "Which LLM providers does KeyForge support?",
+    q: "Which LLM providers does APIKit support?",
     a: "OpenAI, Anthropic (Claude), Google Gemini, Mistral, Cohere, Groq, DeepSeek, xAI (Grok), Perplexity, Together AI, Fireworks AI, OpenRouter, Azure OpenAI, AWS Bedrock, Hugging Face, Replicate, and Ollama (local). Adding a new provider takes about 30 minutes — see the contributing guide.",
   },
   {
     q: "Do I need to sign up?",
-    a: "No. KeyForge is free and requires no account, email, or signup. Just paste a key and test.",
+    a: "No. APIKit is free and requires no account, email, or signup. Just paste a key and test.",
   },
   {
-    q: "Can I run KeyForge myself?",
-    a: "Yes. The codebase is MIT-licensed and runs on any Node.js host or Vercel. Clone the repo at github.com/dimssu/key-forge and follow the README.",
+    q: "Can APIKit do more than just test keys?",
+    a: "Yes — there's a bulk tester (CSV export), a side-by-side provider comparison, a streaming Playground for real prompts, a webhook-signature validator (OpenAI + Anthropic), a rate-limit calculator, a live provider status board, and Postman / Insomnia / Bruno collection exports per provider. The whole thing is a kit, not just a tester.",
+  },
+  {
+    q: "Can I run APIKit myself?",
+    a: "Yes. The codebase is MIT-licensed and runs on any Node.js host or Vercel. Clone the repo and follow the README.",
   },
 ];
 
@@ -67,21 +67,25 @@ export default function Home() {
           id="about-heading"
           className="mt-1.5 text-xl font-semibold tracking-tight sm:text-2xl"
         >
-          KeyForge is a developer tool for testing LLM API keys.
+          APIKit is a developer toolkit for working with LLM APIs.
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          KeyForge is a free, open-source web utility for software developers integrating
+          APIKit is a free, open-source web toolkit for software developers integrating
           Large Language Model (LLM) APIs. Paste a key from{" "}
           <span className="text-foreground">OpenAI</span>,{" "}
           <span className="text-foreground">Anthropic</span> (Claude),{" "}
           <span className="text-foreground">Google Gemini</span>,{" "}
           <span className="text-foreground">Groq</span>,{" "}
           <span className="text-foreground">Mistral</span>, or any of 12 other providers,
-          and KeyForge verifies it works, lists every model the key can call, benchmarks
-          request latency, and generates copy-paste code snippets. The proxy is stateless —
-          no key is ever logged or stored. KeyForge is{" "}
-          <span className="text-foreground">unrelated to the trading card game</span> of the
-          same name; this is a developer utility, not a card game site.
+          and APIKit verifies it works, lists every model the key can call, benchmarks
+          request latency, and generates copy-paste code snippets. Beyond the tester, the
+          kit ships a{" "}
+          <span className="text-foreground">bulk tester</span>, a{" "}
+          <span className="text-foreground">cross-provider comparison</span>, a streaming{" "}
+          <span className="text-foreground">Playground</span>, a{" "}
+          <span className="text-foreground">webhook-signature validator</span>, and a{" "}
+          <span className="text-foreground">rate-limit calculator</span>. The proxy is
+          stateless — no key is ever logged or stored.
         </p>
       </section>
 
@@ -96,7 +100,7 @@ export default function Home() {
             id="faq-heading"
             className="text-2xl font-semibold tracking-tight sm:text-3xl"
           >
-            What KeyForge is — and isn&apos;t.
+            What APIKit is — and isn&apos;t.
           </h2>
         </div>
         <dl className="surface-raised divide-y divide-border/60 overflow-hidden rounded-lg">

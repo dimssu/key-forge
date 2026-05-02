@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata = buildMetadata({
   title: "Shared key test result",
-  description: "Redacted KeyForge test result. The full key is never included in share links.",
+  description: "Redacted APIKit test result. The full key is never included in share links.",
 });
 
 export default async function SharePage({ params }: { params: { token: string } }) {

@@ -81,7 +81,7 @@ export const GUIDE_BODIES: Record<string, string> = {
 <h2>Watch your bill</h2>
 <p>The first sign of a key compromise is usually the bill, not a security alert. Set up provider-side spend alerts (every provider has them). Set them low — 25%, 50%, 75% of monthly cap. If you get the 25% alert on day 2 of the month, something is off.</p>
 <h2>Don't log the key</h2>
-<p>It sounds obvious. It happens constantly. Express's default error handler will dump the request headers including <code>Authorization</code> if you let an exception bubble. Sentry will too. Most APM tools do, unless you explicitly redact <code>authorization</code> and <code>x-api-key</code>. <a href="/test/openai-api-key">KeyForge</a> itself was designed around this — the proxy never logs headers, never persists keys, never echoes them in error messages. You should hold your own code to the same bar.</p>
+<p>It sounds obvious. It happens constantly. Express's default error handler will dump the request headers including <code>Authorization</code> if you let an exception bubble. Sentry will too. Most APM tools do, unless you explicitly redact <code>authorization</code> and <code>x-api-key</code>. <a href="/test/openai-api-key">APIKit</a> itself was designed around this — the proxy never logs headers, never persists keys, never echoes them in error messages. You should hold your own code to the same bar.</p>
 <h2>What to do next</h2>
 <p>Set up <a href="/guides/rotating-api-keys-safely">rotation</a>, watch <a href="/tools/status">provider status</a> so you can tell apart "my key is broken" from "OpenAI is having a day", and consider an <a href="/tools/rate-limit">in-pipeline rate-limit calculator</a> to detect rogue clients early.</p>
 `,
@@ -193,6 +193,6 @@ anthropic-ratelimit-tokens-reset: 2026-01-15T12:34:56Z</code></pre>
 <h2>What about user keys?</h2>
 <p>If you let end-users store their own LLM keys with your app — common pattern for "bring your own key" SaaS — be very careful with rotation. Your job is to securely store them; the user's job is to rotate them. Push reminders, but don't try to rotate on their behalf.</p>
 <h2>What to do next</h2>
-<p>Make sure the key you're testing here is the one in your secrets manager. Use the <a href="/test/openai-api-key">KeyForge tester</a> to confirm v2 is alive before you flip the switch on v1.</p>
+<p>Make sure the key you're testing here is the one in your secrets manager. Use the <a href="/test/openai-api-key">APIKit tester</a> to confirm v2 is alive before you flip the switch on v1.</p>
 `,
 };

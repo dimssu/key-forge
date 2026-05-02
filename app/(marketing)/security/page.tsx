@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo/meta";
 
 export const metadata = buildMetadata({
   title: "Security",
-  description: "KeyForge's threat model, scope of trust, and what we do to keep your API keys safe.",
+  description: "APIKit's threat model, scope of trust, and what we do to keep your API keys safe.",
   path: "/security",
 });
 
@@ -29,8 +29,8 @@ export default function SecurityPage() {
         <p>The following are not threats this site protects against:</p>
         <ul>
           <li>A compromised browser, OS, or password manager. If your machine is compromised, anything you paste is already lost.</li>
-          <li>A man-in-the-middle on your network. KeyForge is HTTPS-only with HSTS, but if your TLS chain is compromised, all bets are off.</li>
-          <li>An upstream provider being breached. KeyForge has no influence on what OpenAI, Anthropic, or any other vendor does with the key once we forward it.</li>
+          <li>A man-in-the-middle on your network. APIKit is HTTPS-only with HSTS, but if your TLS chain is compromised, all bets are off.</li>
+          <li>An upstream provider being breached. APIKit has no influence on what OpenAI, Anthropic, or any other vendor does with the key once we forward it.</li>
         </ul>
 
         <h2>Defenses in place</h2>

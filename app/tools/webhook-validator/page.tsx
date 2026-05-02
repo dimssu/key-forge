@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo/meta";
 export const metadata = buildMetadata({
   title: "OpenAI / Anthropic webhook signature validator",
   description:
-    "Paste a webhook signature header, the raw body, and the secret. KeyForge validates the HMAC against the timestamp window.",
+    "Paste a webhook signature header, the raw body, and the secret. APIKit validates the HMAC against the timestamp window.",
   path: "/tools/webhook-validator",
 });
 

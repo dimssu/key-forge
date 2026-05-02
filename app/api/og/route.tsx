@@ -4,10 +4,12 @@ import { getProviderBySlug } from "@/lib/providers/_registry";
 export const runtime = "edge";
 
 export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
+  const url = new URL(req.url);
+  const { searchParams } = url;
   const title = searchParams.get("title") ?? "LLM API Key Tester";
   const slug = searchParams.get("provider");
   const provider = slug ? getProviderBySlug(slug) : undefined;
+  const host = url.host;
 
   const headline = provider ? `Test your ${provider.name} API key` : title;
   const sub = provider
@@ -57,9 +59,9 @@ export async function GET(req: Request) {
                 letterSpacing: "-0.4px",
               }}
             >
-              <span style={{ color: "#ffffff" }}>key</span>
+              <span style={{ color: "#ffffff" }}>api</span>
               <span style={{ color: "#3ec9ff" }}>/</span>
-              <span style={{ color: "#ffffff" }}>forge</span>
+              <span style={{ color: "#ffffff" }}>kit</span>
             </div>
           </div>
           <div
@@ -125,7 +127,7 @@ export async function GET(req: Request) {
             <span>·</span>
             <span>+13 more</span>
           </div>
-          <span>keyforge.dimssu.com</span>
+          <span>{host}</span>
         </div>
       </div>
     ),

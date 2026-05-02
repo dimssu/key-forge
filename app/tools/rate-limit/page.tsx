@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo/meta";
 export const metadata = buildMetadata({
   title: "LLM rate-limit calculator",
   description:
-    "Paste response headers from OpenAI, Anthropic, or Groq. KeyForge parses your remaining requests and tokens and projects when the limit resets.",
+    "Paste response headers from OpenAI, Anthropic, or Groq. APIKit parses your remaining requests and tokens and projects when the limit resets.",
   path: "/tools/rate-limit",
 });
 
