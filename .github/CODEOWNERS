@@ -1,0 +1,13 @@
+# Default owner for everything not otherwise claimed.
+*       @dimssu
+
+# Provider adapters require a maintainer review (security-sensitive surface).
+/lib/providers/  @dimssu
+
+# Trust + security pages must be reviewed before merging.
+/app/(marketing)/privacy/  @dimssu
+/app/(marketing)/security/ @dimssu
+/lib/jwt.ts @dimssu
+/lib/share.ts @dimssu
+/middleware.ts @dimssu
+/next.config.mjs @dimssu
