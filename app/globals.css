@@ -4,93 +4,233 @@
 
 @layer base {
   :root {
+    /* surfaces */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 240 10% 4%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 240 10% 4%;
+    --raised: 240 7% 97%;
+    --raised-foreground: 240 10% 4%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 222 84% 5%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --success: 142 71% 45%;
+    --popover-foreground: 240 10% 4%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 38%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 4%;
+    --accent: 240 5% 94%;
+    --accent-foreground: 240 10% 4%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 240 10% 14%;
+
+    /* primary = the foreground tone (used sparingly) */
+    --primary: 240 10% 8%;
+    --primary-foreground: 0 0% 100%;
+
+    /* signal colors */
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 70% 38%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 11%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
-    --radius: 0.5rem;
-    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --warning: 35 92% 50%;
+    --warning-foreground: 240 10% 4%;
+
+    /* signature accent — electric cyan, used as the brand spike */
+    --brand: 198 100% 56%;
+    --brand-foreground: 240 10% 4%;
+    --brand-glow: 198 100% 56%;
+
+    --radius: 0.625rem;
   }
+
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 6%;
-    --secondary: 217 32% 14%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 32% 14%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 32% 14%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 210 40% 98%;
-    --success: 142 71% 45%;
-    --success-foreground: 222 47% 6%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 6%;
-    --border: 217 32% 18%;
-    --input: 217 32% 18%;
-    --ring: 210 40% 80%;
+    /* near-black with a faint cool tilt */
+    --background: 240 10% 3.5%;
+    --foreground: 0 0% 98%;
+    --card: 240 8% 5.5%;
+    --card-foreground: 0 0% 98%;
+    --raised: 240 6% 8%;
+    --raised-foreground: 0 0% 98%;
+    --popover: 240 8% 5.5%;
+    --popover-foreground: 0 0% 98%;
+    --muted: 240 5% 11%;
+    --muted-foreground: 240 4% 60%;
+    --secondary: 240 5% 11%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 240 5% 14%;
+    --accent-foreground: 0 0% 98%;
+    --border: 240 5% 13%;
+    --input: 240 5% 13%;
+    --ring: 198 100% 56%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 10% 4%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 70% 50%;
+    --success-foreground: 240 10% 4%;
+    --warning: 35 92% 58%;
+    --warning-foreground: 240 10% 4%;
+
+    --brand: 198 100% 60%;
+    --brand-foreground: 240 10% 4%;
+    --brand-glow: 198 100% 70%;
   }
 }
 
 @layer base {
-  * { @apply border-border; }
-  html { scroll-behavior: smooth; }
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  * {
+    @apply border-border;
   }
-  ::selection { @apply bg-primary text-primary-foreground; }
-  h1, h2, h3, h4 { @apply tracking-tight; }
-  code, pre, kbd, samp { font-family: var(--font-mono); }
-  pre { @apply overflow-x-auto rounded-md bg-secondary p-4 text-sm leading-relaxed; }
-  /* Visible focus rings for keyboard nav */
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11", "cv02", "cv03";
+    background-image:
+      radial-gradient(at 12% -8%, hsl(var(--brand) / 0.07) 0px, transparent 50%),
+      radial-gradient(at 88% 0%, hsl(var(--brand) / 0.04) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--brand) / 0.25);
+    color: hsl(var(--foreground));
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight;
+    letter-spacing: -0.025em;
+  }
+  h1 { letter-spacing: -0.04em; }
+
+  code, pre, kbd, samp {
+    font-family: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-feature-settings: "ss01", "ss02", "cv01";
+  }
+
+  pre {
+    @apply overflow-x-auto rounded-lg text-sm leading-relaxed;
+  }
+
   :focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    @apply outline-none ring-2 ring-offset-2 ring-offset-background;
+    --tw-ring-color: hsl(var(--brand));
   }
 }
 
 @layer components {
+  /* ——— signature surfaces ——— */
+  .surface-raised {
+    background: linear-gradient(180deg, hsl(var(--raised)) 0%, hsl(var(--card)) 100%);
+    border: 1px solid hsl(var(--border));
+    box-shadow:
+      0 1px 0 0 hsl(var(--foreground) / 0.04) inset,
+      0 1px 3px 0 hsl(0 0% 0% / 0.04);
+  }
+  .dark .surface-raised {
+    box-shadow:
+      0 1px 0 0 hsl(var(--foreground) / 0.04) inset,
+      0 1px 3px 0 hsl(0 0% 0% / 0.4);
+  }
+
+  /* gradient border that lights up on hover */
+  .ring-gradient {
+    position: relative;
+    isolation: isolate;
+  }
+  .ring-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      hsl(var(--border)) 0%,
+      hsl(var(--border)) 60%,
+      hsl(var(--brand) / 0) 100%
+    );
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    transition: background 200ms;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .ring-gradient:hover::before {
+    background: linear-gradient(
+      140deg,
+      hsl(var(--border)) 0%,
+      hsl(var(--brand) / 0.5) 60%,
+      hsl(var(--brand) / 0) 100%
+    );
+  }
+
+  /* monochrome glow for the brand accent */
+  .text-glow {
+    text-shadow: 0 0 24px hsl(var(--brand-glow) / 0.4);
+  }
+
+  .dotted-grid {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 30%, transparent 70%);
+  }
+
   .skeleton {
     background: linear-gradient(
       90deg,
       hsl(var(--muted)) 0%,
-      hsl(var(--secondary)) 50%,
+      hsl(var(--accent)) 50%,
       hsl(var(--muted)) 100%
     );
     background-size: 200% 100%;
     @apply animate-shimmer rounded;
   }
-  .prose-doc h2 { @apply mt-10 text-2xl font-semibold; }
-  .prose-doc h3 { @apply mt-8 text-xl font-semibold; }
-  .prose-doc p { @apply mt-4 leading-relaxed text-muted-foreground; }
-  .prose-doc ul { @apply mt-4 list-disc space-y-1 pl-6 text-muted-foreground; }
-  .prose-doc ol { @apply mt-4 list-decimal space-y-1 pl-6 text-muted-foreground; }
-  .prose-doc a { @apply underline decoration-dotted underline-offset-4 hover:text-foreground; }
-  .prose-doc code { @apply rounded bg-secondary px-1.5 py-0.5 text-[0.875em]; }
+
+  /* prose for long-form ——————————————————————— */
+  .prose-doc h2 {
+    @apply mt-12 text-2xl font-semibold;
+    letter-spacing: -0.02em;
+  }
+  .prose-doc h3 {
+    @apply mt-8 text-lg font-semibold;
+  }
+  .prose-doc p {
+    @apply mt-4 leading-7 text-muted-foreground;
+  }
+  .prose-doc ul {
+    @apply mt-4 list-disc space-y-1.5 pl-6 text-muted-foreground marker:text-border;
+  }
+  .prose-doc ol {
+    @apply mt-4 list-decimal space-y-1.5 pl-6 text-muted-foreground marker:text-muted-foreground;
+  }
+  .prose-doc a {
+    @apply text-foreground underline decoration-border decoration-1 underline-offset-[3px] transition-colors hover:decoration-foreground;
+  }
+  .prose-doc code {
+    @apply rounded bg-secondary px-1.5 py-0.5 text-[0.85em] text-foreground;
+  }
+  .prose-doc pre {
+    @apply mt-4 border border-border bg-raised p-4;
+  }
+  .prose-doc strong {
+    @apply text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.025;
+  }
 }

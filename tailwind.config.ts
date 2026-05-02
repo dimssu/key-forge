@@ -54,9 +54,18 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        raised: {
+          DEFAULT: "hsl(var(--raised))",
+          foreground: "hsl(var(--raised-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
+        },
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          foreground: "hsl(var(--brand-foreground))",
+          glow: "hsl(var(--brand-glow))",
         },
       },
       borderRadius: {
@@ -65,8 +74,13 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
+      fontSize: {
+        "display-2xl": ["clamp(3rem, 6.5vw, 5.5rem)", { lineHeight: "0.95", letterSpacing: "-0.045em" }],
+        "display-xl": ["clamp(2.5rem, 5vw, 4rem)", { lineHeight: "1", letterSpacing: "-0.04em" }],
+        "display-lg": ["clamp(2rem, 4vw, 3rem)", { lineHeight: "1.05", letterSpacing: "-0.035em" }],
       },
       keyframes: {
         shimmer: {
@@ -77,10 +91,25 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(4px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+        "marquee": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "blink": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
-        shimmer: "shimmer 2s linear infinite",
-        "fade-in": "fade-in 200ms ease-out",
+        shimmer: "shimmer 2.4s linear infinite",
+        "fade-in": "fade-in 240ms ease-out",
+        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
+        marquee: "marquee 40s linear infinite",
+        blink: "blink 1s steps(2, start) infinite",
       },
     },
   },
