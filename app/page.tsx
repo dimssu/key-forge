@@ -56,6 +56,35 @@ export default function Home() {
         />
       </section>
 
+      <section
+        aria-labelledby="about-heading"
+        className="surface-raised rounded-xl px-6 py-7 sm:px-8 sm:py-8"
+      >
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/70">
+          About
+        </p>
+        <h2
+          id="about-heading"
+          className="mt-1.5 text-xl font-semibold tracking-tight sm:text-2xl"
+        >
+          KeyForge is a developer tool for testing LLM API keys.
+        </h2>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          KeyForge is a free, open-source web utility for software developers integrating
+          Large Language Model (LLM) APIs. Paste a key from{" "}
+          <span className="text-foreground">OpenAI</span>,{" "}
+          <span className="text-foreground">Anthropic</span> (Claude),{" "}
+          <span className="text-foreground">Google Gemini</span>,{" "}
+          <span className="text-foreground">Groq</span>,{" "}
+          <span className="text-foreground">Mistral</span>, or any of 12 other providers,
+          and KeyForge verifies it works, lists every model the key can call, benchmarks
+          request latency, and generates copy-paste code snippets. The proxy is stateless —
+          no key is ever logged or stored. KeyForge is{" "}
+          <span className="text-foreground">unrelated to the trading card game</span> of the
+          same name; this is a developer utility, not a card game site.
+        </p>
+      </section>
+
       <ProviderGrid />
 
       <section aria-labelledby="faq-heading" className="space-y-6">
