@@ -48,7 +48,7 @@ export function Footer() {
               Free, open-source toolkit for testing LLM API keys. No signup.
             </p>
             <p className="font-mono text-[0.7rem] text-muted-foreground/60">
-              keyforge.dimssu.com
+              apikit.dimssu.com
             </p>
           </div>
           {COLUMNS.map((c) => (

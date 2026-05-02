@@ -49,19 +49,19 @@ Hugging Face, Replicate, Ollama.
 
 ## Pages
 
-- [Homepage](https://keyforge.dimssu.com): paste a key, get an instant test
-- [Provider tests](https://keyforge.dimssu.com/test/openai-api-key): per-provider
+- [Homepage](https://apikit.dimssu.com): paste a key, get an instant test
+- [Provider tests](https://apikit.dimssu.com/test/openai-api-key): per-provider
   pages for OpenAI, Anthropic, Gemini, and 14 more
-- [Compare](https://keyforge.dimssu.com/compare): cross-provider comparison
-- [Bulk tester](https://keyforge.dimssu.com/bulk): test many keys at once
-- [Playground](https://keyforge.dimssu.com/playground): run a real prompt
-- [Status](https://keyforge.dimssu.com/tools/status): live provider uptime
-- [Rate-limit calculator](https://keyforge.dimssu.com/tools/rate-limit)
-- [Webhook validator](https://keyforge.dimssu.com/tools/webhook-validator)
-- [Guides](https://keyforge.dimssu.com/guides): how to get a key, security best
+- [Compare](https://apikit.dimssu.com/compare): cross-provider comparison
+- [Bulk tester](https://apikit.dimssu.com/bulk): test many keys at once
+- [Playground](https://apikit.dimssu.com/playground): run a real prompt
+- [Status](https://apikit.dimssu.com/tools/status): live provider uptime
+- [Rate-limit calculator](https://apikit.dimssu.com/tools/rate-limit)
+- [Webhook validator](https://apikit.dimssu.com/tools/webhook-validator)
+- [Guides](https://apikit.dimssu.com/guides): how to get a key, security best
   practices, rotation, pricing comparison, free tiers, rate limits explained
-- [Privacy](https://keyforge.dimssu.com/privacy)
-- [Security](https://keyforge.dimssu.com/security)
+- [Privacy](https://apikit.dimssu.com/privacy)
+- [Security](https://apikit.dimssu.com/security)
 
 ## Permissions for AI crawlers
 

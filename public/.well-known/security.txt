@@ -1,5 +1,5 @@
 Contact: mailto:security@dimssu.com
 Expires: 2027-05-02T00:00:00.000Z
 Preferred-Languages: en
-Canonical: https://keyforge.dimssu.com/.well-known/security.txt
-Policy: https://keyforge.dimssu.com/security
+Canonical: https://apikit.dimssu.com/.well-known/security.txt
+Policy: https://apikit.dimssu.com/security

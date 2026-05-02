@@ -7,7 +7,7 @@ A free, universal LLM API key tester. Built end-to-end across 8 specialized agen
 - **Stack**: Next.js 14 App Router · TypeScript strict · Tailwind · shadcn/ui · Framer Motion · Lucide · Zod · @vercel/og · jose
 - **Package manager**: pnpm 9
 - **Status**: `pnpm typecheck`, `pnpm lint`, `pnpm test` (13/13), and `pnpm build` (25 static pages) all green.
-- **Domain**: keyforge.dimssu.com (DNS records below).
+- **Domain**: apikit.dimssu.com (DNS records below).
 - **Auth strategy**: stateless server proxy at `/api/proxy/[provider]`. Keys arrive in `x-apikit-key`, are forwarded once, never logged or persisted.
 
 ## Provider integration matrix (17/17)
@@ -117,7 +117,7 @@ A free, universal LLM API key tester. Built end-to-end across 8 specialized agen
 | Guides as TS modules | `lib/guides-content.ts` instead of MDX | Removes MDX build dependency and contentlayer churn for a content set this small. |
 | Test framework | Vitest + Playwright | Vitest is fast for the registry tests; Playwright matches the spec. |
 
-## DNS records for `keyforge.dimssu.com → Vercel`
+## DNS records for `apikit.dimssu.com → Vercel`
 
 Add **one** of the following at your registrar (the CNAME is the recommended option for subdomains):
 
@@ -133,7 +133,7 @@ If `dimssu.com` is on Cloudflare, set the proxy mode to **DNS only (grey cloud)*
 
 Not relevant for a subdomain. Use Option A.
 
-After the DNS resolves, in **Vercel → Project → Settings → Domains** add `keyforge.dimssu.com` and the project will issue a Let's Encrypt cert automatically.
+After the DNS resolves, in **Vercel → Project → Settings → Domains** add `apikit.dimssu.com` and the project will issue a Let's Encrypt cert automatically.
 
 ## Optional environment variables
 
@@ -141,10 +141,10 @@ Set in **Vercel → Settings → Environment Variables** (or `.env.local` for lo
 
 | Name | Required? | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | no | Defaults to `https://keyforge.dimssu.com` |
+| `NEXT_PUBLIC_SITE_URL` | no | Defaults to `https://apikit.dimssu.com` |
 | `APIKIT_SIGNING_SECRET` | optional | Enables `/api/share` and rotation reminder tokens. Generate with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` |
 | `RESEND_API_KEY` | optional | Enables the rotation-reminder UI |
-| `REMINDER_FROM_EMAIL` | optional | Defaults to `no-reply@keyforge.dimssu.com` |
+| `REMINDER_FROM_EMAIL` | optional | Defaults to `no-reply@apikit.dimssu.com` |
 | `APIKIT_RATE_LIMIT_PER_MINUTE` | optional | Per-IP cap on `/api/proxy/*`. Default 30. |
 
 The site works without any of these — the optional features hide gracefully.

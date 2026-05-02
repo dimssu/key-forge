@@ -111,6 +111,12 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "keyforge.dimssu.com" }],
+      "destination": "https://apikit.dimssu.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/test/openai",
       "destination": "/test/openai-api-key",
       "permanent": true

@@ -9,7 +9,7 @@ import { writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
-const HOST = process.env.INDEXNOW_HOST ?? "keyforge.dimssu.com";
+const HOST = process.env.INDEXNOW_HOST ?? "apikit.dimssu.com";
 const SITE = `https://${HOST}`;
 
 // Generate a stable per-host key. IndexNow requires the same UUID-ish string

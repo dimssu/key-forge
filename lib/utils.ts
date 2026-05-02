@@ -12,7 +12,7 @@ export function redactKey(key: string): string {
 }
 
 export function siteUrl(path = "/"): string {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://keyforge.dimssu.com";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://apikit.dimssu.com";
   if (!path.startsWith("/")) return `${base}/${path}`;
   return `${base}${path}`;
 }

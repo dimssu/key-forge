@@ -6,7 +6,7 @@ APIKit is a free, universal LLM API key tester. Paste an API key from any major 
 
 Zero signup. Open source. MIT-licensed.
 
-🌐 Live: **[keyforge.dimssu.com](https://keyforge.dimssu.com)**
+🌐 Live: **[apikit.dimssu.com](https://apikit.dimssu.com)**
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdimssu%2Fkey-forge)
 
@@ -49,7 +49,7 @@ The site runs at <http://localhost:3000>. No env vars are required for the core 
 
 - `APIKIT_SIGNING_SECRET` — enables shareable redacted result URLs and rotation reminders.
 - `RESEND_API_KEY` — enables the rotation-reminder email feature (hidden when unset).
-- `NEXT_PUBLIC_SITE_URL` — overrides the canonical / OG base URL (defaults to `https://keyforge.dimssu.com`).
+- `NEXT_PUBLIC_SITE_URL` — overrides the canonical / OG base URL (defaults to `https://apikit.dimssu.com`).
 
 ## Build
 
@@ -75,10 +75,10 @@ pnpm lhci            # Lighthouse CI — fails under 95 on any category
 The one-click button at the top of this README is the fast path. After deploying:
 
 1. Open your Vercel project → **Settings → Domains**.
-2. Add `keyforge.dimssu.com` as a custom domain.
+2. Add `apikit.dimssu.com` as a custom domain.
 3. Add the DNS records below at your registrar (Namecheap, Cloudflare, Route 53, etc.).
 
-### DNS for `keyforge.dimssu.com`
+### DNS for `apikit.dimssu.com`
 
 | Type  | Host       | Value                  | TTL  |
 | ----- | ---------- | ---------------------- | ---- |
@@ -92,10 +92,10 @@ Set under **Settings → Environment Variables**:
 
 | Name                          | Required? | Purpose                                            |
 | ----------------------------- | --------- | -------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`        | no        | Defaults to `https://keyforge.dimssu.com`.         |
+| `NEXT_PUBLIC_SITE_URL`        | no        | Defaults to `https://apikit.dimssu.com`.         |
 | `APIKIT_SIGNING_SECRET`     | optional  | Enables share links + rotation reminders.          |
 | `RESEND_API_KEY`              | optional  | Enables rotation reminder emails.                  |
-| `REMINDER_FROM_EMAIL`         | optional  | Defaults to `no-reply@keyforge.dimssu.com`.        |
+| `REMINDER_FROM_EMAIL`         | optional  | Defaults to `no-reply@apikit.dimssu.com`.        |
 | `APIKIT_RATE_LIMIT_PER_MINUTE` | optional | Per-IP rate limit on `/api/proxy/*`. Default 30. |
 
 ## CLI companion
@@ -117,7 +117,7 @@ The privacy story is the product. The short version:
 - Share URLs encode only the last 4 characters of the key.
 - The reminder feature signs a JWT with `{ email, providerId, expiresAt }` — never the key.
 
-The long version is on [/privacy](https://keyforge.dimssu.com/privacy).
+The long version is on [/privacy](https://apikit.dimssu.com/privacy).
 
 ## Architecture
 

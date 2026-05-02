@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "APIKit — free, open-source developer toolkit for testing LLM API keys.",
-  "homepage": "https://keyforge.dimssu.com",
+  "homepage": "https://apikit.dimssu.com",
   "license": "MIT",
   "packageManager": "pnpm@9.12.0",
   "engines": {

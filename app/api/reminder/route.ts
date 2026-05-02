@@ -38,7 +38,7 @@ export async function POST(req: Request) {
 
   // Schedule by sending an immediate confirmation email; the reminder itself is sent
   // later by a cron / scheduled job calling the Resend API with the same token signature.
-  const from = process.env.REMINDER_FROM_EMAIL ?? "no-reply@keyforge.dimssu.com";
+  const from = process.env.REMINDER_FROM_EMAIL ?? "no-reply@apikit.dimssu.com";
   const subject = `APIKit — confirm rotation reminder for ${body.providerId}`;
   const text = `You asked APIKit to remind you to rotate your ${body.providerId} key in ${body.days} days.
 

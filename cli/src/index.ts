@@ -11,7 +11,7 @@ Usage:
 
 Environment:
   APIKIT_KEY         The key to test.
-  APIKIT_BASE_URL    Override the proxy base (default https://keyforge.dimssu.com).
+  APIKIT_BASE_URL    Override the proxy base (default https://apikit.dimssu.com).
 
 Examples:
   APIKIT_KEY=sk-... npx apikit validate openai
@@ -23,7 +23,7 @@ const PROVIDERS = [
   "azure-openai", "bedrock", "huggingface", "replicate", "ollama",
 ];
 
-const base = process.env.APIKIT_BASE_URL ?? "https://keyforge.dimssu.com";
+const base = process.env.APIKIT_BASE_URL ?? "https://apikit.dimssu.com";
 
 async function call(provider: string, action: "validate" | "models" | "bench", samples?: number) {
   const key = process.env.APIKIT_KEY;
