@@ -5,12 +5,14 @@ export const runtime = "edge";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") ?? "Test any LLM API key in seconds";
+  const title = searchParams.get("title") ?? "LLM API Key Tester";
   const slug = searchParams.get("provider");
   const provider = slug ? getProviderBySlug(slug) : undefined;
+
+  const headline = provider ? `Test your ${provider.name} API key` : title;
   const sub = provider
-    ? `Verify a ${provider.name} key, list models, benchmark latency.`
-    : "KeyForge — free, universal LLM API key tester.";
+    ? `Validate the key, list accessible models, benchmark latency.`
+    : "Validate keys for OpenAI, Anthropic, Gemini, Groq, and 13 more providers.";
 
   return new ImageResponse(
     (
@@ -21,48 +23,96 @@ export async function GET(req: Request) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(135deg, #0b1220 0%, #1a2540 100%)",
+          background: "linear-gradient(135deg, #08080a 0%, #0d1320 60%, #0a1a2a 100%)",
           color: "white",
           padding: 64,
           fontFamily: "ui-sans-serif, system-ui",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        {/* top: brand row */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: 10,
+                background: "linear-gradient(135deg, #3ec9ff 0%, #4f46e5 100%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#08080a",
+                fontSize: 26,
+                fontWeight: 800,
+              }}
+            >
+              ⌥
+            </div>
+            <div style={{ fontSize: 24, fontWeight: 600, letterSpacing: -0.4 }}>
+              <span style={{ color: "#fff" }}>key</span>
+              <span style={{ color: "#3ec9ff" }}>/</span>
+              <span style={{ color: "#fff" }}>forge</span>
+            </div>
+          </div>
           <div
             style={{
-              width: 56,
-              height: 56,
-              borderRadius: 12,
-              background: "linear-gradient(135deg, #fff 0%, #aab 100%)",
-              color: "#0b1220",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 32,
-              fontWeight: 800,
+              padding: "6px 12px",
+              borderRadius: 999,
+              background: "rgba(62, 201, 255, 0.15)",
+              color: "#7fdbff",
+              fontSize: 14,
+              fontWeight: 600,
+              letterSpacing: 1,
+              textTransform: "uppercase",
+              fontFamily: "ui-monospace",
             }}
           >
-            ⌥
+            LLM API key tester
           </div>
-          <div style={{ fontSize: 28, fontWeight: 600, letterSpacing: -0.5 }}>KeyForge</div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+        {/* middle: huge headline */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              fontSize: 64,
+              fontSize: 76,
               fontWeight: 700,
-              letterSpacing: -1.5,
-              lineHeight: 1.05,
-              maxWidth: 980,
+              letterSpacing: -2,
+              lineHeight: 1,
+              maxWidth: 1000,
             }}
           >
-            {title}
+            {headline}
           </div>
-          <div style={{ fontSize: 24, color: "#a3aed0", maxWidth: 980 }}>{sub}</div>
+          <div style={{ fontSize: 26, color: "#a3aed0", maxWidth: 1000, lineHeight: 1.3 }}>
+            {sub}
+          </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", color: "#a3aed0", fontSize: 18 }}>
+
+        {/* bottom: provider strip */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            color: "#7d8aab",
+            fontSize: 18,
+          }}
+        >
+          <div style={{ display: "flex", gap: 18, fontFamily: "ui-monospace" }}>
+            <span>OpenAI</span>
+            <span>·</span>
+            <span>Anthropic</span>
+            <span>·</span>
+            <span>Gemini</span>
+            <span>·</span>
+            <span>Groq</span>
+            <span>·</span>
+            <span>Mistral</span>
+            <span>·</span>
+            <span>+12</span>
+          </div>
           <span>keyforge.dimssu.com</span>
-          <span>Free · Open source · No signup</span>
         </div>
       </div>
     ),

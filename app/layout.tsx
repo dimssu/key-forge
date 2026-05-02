@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { SkipLink } from "@/components/skip-link";
 import { buildMetadata } from "@/lib/seo/meta";
+import { organization, website } from "@/lib/seo/jsonld";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata();
@@ -37,6 +38,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </Toaster>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organization()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(website()) }}
+        />
       </body>
     </html>
   );

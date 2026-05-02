@@ -5,18 +5,112 @@ export interface FaqItem {
   a: string;
 }
 
+const PROVIDERS_LIST = [
+  "OpenAI",
+  "Anthropic",
+  "Google Gemini",
+  "Mistral",
+  "Cohere",
+  "Groq",
+  "DeepSeek",
+  "xAI Grok",
+  "Perplexity",
+  "Together AI",
+  "Fireworks AI",
+  "OpenRouter",
+  "Azure OpenAI",
+  "AWS Bedrock",
+  "Hugging Face",
+  "Replicate",
+  "Ollama",
+];
+
+export function organization() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "KeyForge",
+    alternateName: "KeyForge LLM API Key Tester",
+    description:
+      "Free, open-source developer tool for testing Large Language Model (LLM) API keys. Unrelated to the KeyForge trading card game.",
+    url: siteUrl(),
+    logo: siteUrl("/favicon.svg"),
+    sameAs: ["https://github.com/dimssu/key-forge"],
+  };
+}
+
+export function website() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "KeyForge",
+    alternateName: "KeyForge — LLM API Key Tester",
+    url: siteUrl(),
+    description:
+      "Free LLM API key tester for OpenAI, Anthropic, Gemini, Groq, and 13 more providers.",
+    inLanguage: "en",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Software developers integrating LLM APIs",
+    },
+    about: [
+      { "@type": "Thing", name: "Large Language Model APIs" },
+      { "@type": "Thing", name: "API key validation" },
+      { "@type": "Thing", name: "Developer tools" },
+    ],
+  };
+}
+
 export function softwareApp() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "KeyForge",
+    alternateName: "KeyForge LLM API Key Tester",
     description:
-      "Test any LLM API key in seconds. Validate, list models, benchmark latency, and copy ready-to-use snippets.",
+      "Free, universal LLM API key tester. Validate keys for OpenAI, Anthropic, Gemini, Groq, Mistral, and 12 more providers in seconds. Lists accessible models, benchmarks latency, and generates code snippets. Open source, no signup.",
     applicationCategory: "DeveloperApplication",
-    operatingSystem: "Any (web)",
+    applicationSubCategory: "DeveloperTool",
+    operatingSystem: "Web Browser",
+    browserRequirements: "Requires JavaScript and HTML5",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    isAccessibleForFree: true,
     url: siteUrl(),
-    publisher: { "@type": "Organization", name: "KeyForge" },
+    image: siteUrl("/api/og?title=LLM+API+Key+Tester"),
+    publisher: organization(),
+    audience: {
+      "@type": "Audience",
+      audienceType: "Software developers integrating LLM APIs",
+    },
+    keywords: [
+      "LLM API key tester",
+      "test OpenAI API key",
+      "validate Anthropic API key",
+      "check Gemini API key",
+      "Claude API key test",
+      "Groq API key validator",
+      "developer tool",
+      "API key validation",
+      ...PROVIDERS_LIST.map((p) => `${p} API`),
+    ].join(", "),
+    featureList: [
+      "Validate LLM API keys against the upstream provider",
+      "List models accessible to the supplied key",
+      "Benchmark request latency (p50, p95, p99)",
+      "Generate cURL, Python, Node fetch, and axios code snippets",
+      "Bulk test many keys with CSV export",
+      "Stream a real prompt through the Playground",
+      "Validate OpenAI and Anthropic webhook signatures",
+      "Parse rate-limit response headers",
+      "Live provider uptime indicator",
+      "Stateless proxy — keys never persist",
+    ],
+    about: [
+      { "@type": "Thing", name: "OpenAI API" },
+      { "@type": "Thing", name: "Anthropic Claude API" },
+      { "@type": "Thing", name: "Google Gemini API" },
+      { "@type": "Thing", name: "LLM developer tools" },
+    ],
   };
 }
 
@@ -79,7 +173,7 @@ export function article(args: {
     datePublished: args.published,
     dateModified: args.updated ?? args.published,
     mainEntityOfPage: { "@type": "WebPage", "@id": siteUrl(`/guides/${args.slug}`) },
-    author: { "@type": "Organization", name: "KeyForge" },
-    publisher: { "@type": "Organization", name: "KeyForge" },
+    author: organization(),
+    publisher: organization(),
   };
 }
