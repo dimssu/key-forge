@@ -11,8 +11,8 @@ export async function GET(req: Request) {
 
   const headline = provider ? `Test your ${provider.name} API key` : title;
   const sub = provider
-    ? `Validate the key, list accessible models, benchmark latency.`
-    : "Validate keys for OpenAI, Anthropic, Gemini, Groq, and 13 more providers.";
+    ? "Validate the key, list accessible models, benchmark latency."
+    : "Validate keys for OpenAI, Anthropic, Gemini, Groq + 13 more providers.";
 
   return new ImageResponse(
     (
@@ -23,83 +23,98 @@ export async function GET(req: Request) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(135deg, #08080a 0%, #0d1320 60%, #0a1a2a 100%)",
+          backgroundColor: "#08080a",
+          backgroundImage:
+            "linear-gradient(135deg, #08080a 0%, #0d1320 60%, #0a1a2a 100%)",
           color: "white",
-          padding: 64,
-          fontFamily: "ui-sans-serif, system-ui",
+          padding: "64px",
         }}
       >
-        {/* top: brand row */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
             <div
               style={{
-                width: 48,
-                height: 48,
-                borderRadius: 10,
-                background: "linear-gradient(135deg, #3ec9ff 0%, #4f46e5 100%)",
+                width: "48px",
+                height: "48px",
+                borderRadius: "10px",
+                backgroundColor: "#3ec9ff",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#08080a",
-                fontSize: 26,
-                fontWeight: 800,
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                fontSize: "24px",
+                fontWeight: 600,
+                letterSpacing: "-0.4px",
               }}
             >
-              ⌥
-            </div>
-            <div style={{ fontSize: 24, fontWeight: 600, letterSpacing: -0.4 }}>
-              <span style={{ color: "#fff" }}>key</span>
+              <span style={{ color: "#ffffff" }}>key</span>
               <span style={{ color: "#3ec9ff" }}>/</span>
-              <span style={{ color: "#fff" }}>forge</span>
+              <span style={{ color: "#ffffff" }}>forge</span>
             </div>
           </div>
           <div
             style={{
-              padding: "6px 12px",
-              borderRadius: 999,
-              background: "rgba(62, 201, 255, 0.15)",
+              display: "flex",
+              padding: "8px 16px",
+              borderRadius: "999px",
+              backgroundColor: "rgba(62, 201, 255, 0.15)",
               color: "#7fdbff",
-              fontSize: 14,
+              fontSize: "14px",
               fontWeight: 600,
-              letterSpacing: 1,
+              letterSpacing: "1px",
               textTransform: "uppercase",
-              fontFamily: "ui-monospace",
             }}
           >
             LLM API key tester
           </div>
         </div>
 
-        {/* middle: huge headline */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
-              fontSize: 76,
+              display: "flex",
+              fontSize: "76px",
               fontWeight: 700,
-              letterSpacing: -2,
+              letterSpacing: "-2px",
               lineHeight: 1,
-              maxWidth: 1000,
+              maxWidth: "1000px",
             }}
           >
             {headline}
           </div>
-          <div style={{ fontSize: 26, color: "#a3aed0", maxWidth: 1000, lineHeight: 1.3 }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: "26px",
+              color: "#a3aed0",
+              maxWidth: "1000px",
+              lineHeight: 1.3,
+            }}
+          >
             {sub}
           </div>
         </div>
 
-        {/* bottom: provider strip */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             color: "#7d8aab",
-            fontSize: 18,
+            fontSize: "18px",
           }}
         >
-          <div style={{ display: "flex", gap: 18, fontFamily: "ui-monospace" }}>
+          <div style={{ display: "flex", gap: "18px" }}>
             <span>OpenAI</span>
             <span>·</span>
             <span>Anthropic</span>
@@ -108,9 +123,7 @@ export async function GET(req: Request) {
             <span>·</span>
             <span>Groq</span>
             <span>·</span>
-            <span>Mistral</span>
-            <span>·</span>
-            <span>+12</span>
+            <span>+13 more</span>
           </div>
           <span>keyforge.dimssu.com</span>
         </div>
