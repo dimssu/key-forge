@@ -43,18 +43,25 @@ describe("provider registry", () => {
     }
   });
 
-  it("detectProvider matches each adapter's keyExample for non-host-based adapters", () => {
-    for (const p of providers) {
-      if (p.hostBased) continue;
-      const probe = `${p.keyExample.split("•")[0]}${"a".repeat(64)}`;
-      const detected = detectProvider(probe);
-      expect(detected, `no detection for ${p.id} probe ${probe.slice(0, 12)}…`).toBeDefined();
+  it("detectProvider routes unambiguous prefixes to the correct adapter", () => {
+    const cases: Array<[string, string]> = [
+      [`sk-ant-api03-${"x".repeat(80)}`, "anthropic"],
+      [`sk-or-v1-${"x".repeat(48)}`, "openrouter"],
+      [`gsk_${"x".repeat(48)}`, "groq"],
+      [`pplx-${"x".repeat(48)}`, "perplexity"],
+      [`xai-${"x".repeat(48)}`, "xai"],
+      [`fw_${"x".repeat(48)}`, "fireworks"],
+      [`hf_${"x".repeat(40)}`, "huggingface"],
+      [`r8_${"x".repeat(40)}`, "replicate"],
+      [`AIza${"a".repeat(35)}`, "gemini"],
+      [`sk-proj-${"x".repeat(48)}`, "openai"],
+      ['{"endpoint":"https://x.openai.azure.com","apiKey":"x"}', "azure-openai"],
+      ['{"accessKeyId":"AKIAFOO","secretAccessKey":"bar"}', "bedrock"],
+      ["http://localhost:11434", "ollama"],
+    ];
+    for (const [probe, expected] of cases) {
+      expect(detectProvider(probe)?.id, probe).toBe(expected);
     }
-  });
-
-  it("paste-detect is most-specific first (anthropic before openai)", () => {
-    const ant = `sk-ant-api03-${"x".repeat(80)}`;
-    expect(detectProvider(ant)?.id).toBe("anthropic");
   });
 
   it("snippets generator returns all four shapes for every provider", () => {

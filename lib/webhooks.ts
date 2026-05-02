@@ -59,12 +59,12 @@ export async function verifyOpenAI(args: {
   toleranceSeconds?: number;
 }): Promise<{ valid: boolean; reason?: string }> {
   const tol = args.toleranceSeconds ?? 300;
-  const parts = Object.fromEntries(
-    args.signatureHeader.split(",").map((p) => {
-      const [k, v] = p.split("=");
-      return [k?.trim() ?? "", v?.trim() ?? ""];
-    })
-  );
+  const parts: Record<string, string> = {};
+  for (const seg of args.signatureHeader.split(",")) {
+    const idx = seg.indexOf("=");
+    if (idx < 0) continue;
+    parts[seg.slice(0, idx).trim()] = seg.slice(idx + 1).trim();
+  }
   const t = Number(parts["t"]);
   const provided = parts["v1"];
   if (!Number.isFinite(t)) return { valid: false, reason: "Missing or invalid t value." };

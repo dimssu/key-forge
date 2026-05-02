@@ -38,15 +38,18 @@ async function sigv4Get(
   const enc = (s: string) => new TextEncoder().encode(s);
   const sha256Hex = async (data: string | Uint8Array) => {
     const bytes = typeof data === "string" ? enc(data) : data;
-    const hash = await crypto.subtle.digest("SHA-256", bytes);
+    // Copy into a fresh Uint8Array<ArrayBuffer> to satisfy SubtleCrypto's BufferSource type.
+    const buf = new Uint8Array(bytes).buffer as ArrayBuffer;
+    const hash = await crypto.subtle.digest("SHA-256", buf);
     return Array.from(new Uint8Array(hash))
       .map((b) => b.toString(16).padStart(2, "0"))
       .join("");
   };
   const hmac = async (key: ArrayBuffer | Uint8Array, msg: string) => {
+    const keyBuf = key instanceof Uint8Array ? new Uint8Array(key).buffer : key;
     const cryptoKey = await crypto.subtle.importKey(
       "raw",
-      key as BufferSource,
+      keyBuf as ArrayBuffer,
       { name: "HMAC", hash: "SHA-256" },
       false,
       ["sign"]

@@ -11,6 +11,8 @@ import type { ProviderAdapter } from "@/lib/providers/_types";
 import { redactKey } from "@/lib/utils";
 import { Skeleton } from "./ui/skeleton";
 
+const SAMPLE_PROMPT = "Hello — what's the cheapest model you currently expose?";
+
 interface TesterProps {
   provider: Pick<
     ProviderAdapter,
@@ -104,7 +106,6 @@ export function Tester({ provider }: TesterProps) {
     toast({ title: "Share link copied", description: "Redacted result URL on clipboard." });
   };
 
-  const sample = `Hello — what's the cheapest model you currently expose?`;
   const exampleModel = data?.models?.[0]?.id ?? "";
 
   const adapter = React.useMemo(() => {
@@ -122,7 +123,7 @@ export function Tester({ provider }: TesterProps) {
         a.snippets({
           redactedKey: key ? redactKey(key) : a.keyExample.replace(/[•]/g, "X"),
           exampleModel,
-          prompt: sample,
+          prompt: SAMPLE_PROMPT,
         })
       );
     });

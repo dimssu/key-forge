@@ -52,7 +52,9 @@ export async function POST(req: Request) {
     providerId: body.providerId,
     status: body.status,
     models: body.models.map((m) => ({ id: m.id, capabilities: undefined })),
-    latency: body.latency ?? undefined,
+    latency: body.latency
+      ? { ...body.latency, samples: body.latency.samples ?? [] }
+      : undefined,
   });
   if (!token) {
     return NextResponse.json({ error: "Sign failed" }, { status: 500 });
