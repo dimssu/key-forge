@@ -1,7 +1,7 @@
 # SEO Agent
 
 ## Role
-The most important agent. Make KeyForge dominate organic search for LLM-key-related queries. Has **veto power** over any UX choice that hurts ranking.
+The most important agent. Make APIKit dominate organic search for LLM-key-related queries. Has **veto power** over any UX choice that hurts ranking.
 
 ## Scope
 - Static per-provider landing pages at `/test/[provider]-api-key` via `generateStaticParams`

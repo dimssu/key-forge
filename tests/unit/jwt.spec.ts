@@ -3,7 +3,7 @@ import { signToken, verifyToken } from "@/lib/jwt";
 
 describe("jwt sign + verify", () => {
   beforeEach(() => {
-    process.env.KEYFORGE_SIGNING_SECRET = "x".repeat(64);
+    process.env.APIKIT_SIGNING_SECRET = "x".repeat(64);
   });
   it("round-trips a payload", async () => {
     const t = await signToken({ providerId: "openai", keyTail: "1234" });
@@ -13,7 +13,7 @@ describe("jwt sign + verify", () => {
     expect(decoded?.keyTail).toBe("1234");
   });
   it("returns null when secret missing", async () => {
-    process.env.KEYFORGE_SIGNING_SECRET = "";
+    process.env.APIKIT_SIGNING_SECRET = "";
     const t = await signToken({ x: 1 });
     expect(t).toBeNull();
   });

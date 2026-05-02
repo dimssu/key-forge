@@ -56,4 +56,4 @@ Each adapter implements: `validateKey`, `listModels`, `fetchQuota?`, `streamTest
 - [ ] Unit test in `tests/unit/registry.spec.ts` asserts every adapter has required fields and matches its `keyExample` against `keyPattern`
 - [ ] Each adapter handles 401/403 by returning a typed error with a fix suggestion (no raw error bodies that might echo the key)
 - [ ] Latency benchmark in each adapter does N pings (default 5) against a cheap "list models" or equivalent endpoint
-- [ ] AWS Bedrock and Azure OpenAI gracefully accept their composite credentials via JSON-encoded payload in the `x-keyforge-key` header
+- [ ] AWS Bedrock and Azure OpenAI gracefully accept their composite credentials via JSON-encoded payload in the `x-apikit-key` header

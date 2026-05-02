@@ -1,10 +1,10 @@
 {
-  "name": "keyforge",
+  "name": "apikit-cli",
   "version": "0.1.0",
-  "description": "CLI companion for KeyForge — test any LLM API key from your terminal.",
+  "description": "CLI companion for APIKit — test any LLM API key from your terminal.",
   "license": "MIT",
   "type": "module",
-  "bin": { "keyforge": "./bin/keyforge.js" },
+  "bin": { "apikit": "./bin/apikit.js" },
   "files": ["bin", "src"],
   "scripts": {
     "build": "tsc -p tsconfig.json"

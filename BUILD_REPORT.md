@@ -1,4 +1,4 @@
-# KeyForge — Build Report
+# APIKit — Build Report
 
 A free, universal LLM API key tester. Built end-to-end across 8 specialized agents (specs in `/agents/`).
 
@@ -8,7 +8,7 @@ A free, universal LLM API key tester. Built end-to-end across 8 specialized agen
 - **Package manager**: pnpm 9
 - **Status**: `pnpm typecheck`, `pnpm lint`, `pnpm test` (13/13), and `pnpm build` (25 static pages) all green.
 - **Domain**: keyforge.dimssu.com (DNS records below).
-- **Auth strategy**: stateless server proxy at `/api/proxy/[provider]`. Keys arrive in `x-keyforge-key`, are forwarded once, never logged or persisted.
+- **Auth strategy**: stateless server proxy at `/api/proxy/[provider]`. Keys arrive in `x-apikit-key`, are forwarded once, never logged or persisted.
 
 ## Provider integration matrix (17/17)
 
@@ -111,7 +111,7 @@ A free, universal LLM API key tester. Built end-to-end across 8 specialized agen
 | Git identity | `dev` / `dev@dimssu.com` | Per spec fallback. No remote URL was provided either; commits are queued locally. |
 | Per-provider URL pattern | `/test/<slug>-api-key` | Keyword-rich; SEO-veto-protected over the cleaner `/<slug>` pattern. |
 | Default theme | Dark | Dev-focused aesthetic, matches Vercel/Linear inspiration. |
-| Composite credentials | JSON-encoded in the same `x-keyforge-key` header | One auth boundary instead of two; the provider adapter parses the JSON. |
+| Composite credentials | JSON-encoded in the same `x-apikit-key` header | One auth boundary instead of two; the provider adapter parses the JSON. |
 | Reminder service | Resend (optional, hidden when env unset) | Lightweight, no DB; fits the stateless story. |
 | Status feed | statuspage.io `/api/v2/status.json` | Most providers expose this; "unknown" is acceptable for the rest. |
 | Guides as TS modules | `lib/guides-content.ts` instead of MDX | Removes MDX build dependency and contentlayer churn for a content set this small. |
@@ -142,10 +142,10 @@ Set in **Vercel → Settings → Environment Variables** (or `.env.local` for lo
 | Name | Required? | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | no | Defaults to `https://keyforge.dimssu.com` |
-| `KEYFORGE_SIGNING_SECRET` | optional | Enables `/api/share` and rotation reminder tokens. Generate with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` |
+| `APIKIT_SIGNING_SECRET` | optional | Enables `/api/share` and rotation reminder tokens. Generate with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` |
 | `RESEND_API_KEY` | optional | Enables the rotation-reminder UI |
 | `REMINDER_FROM_EMAIL` | optional | Defaults to `no-reply@keyforge.dimssu.com` |
-| `KEYFORGE_RATE_LIMIT_PER_MINUTE` | optional | Per-IP cap on `/api/proxy/*`. Default 30. |
+| `APIKIT_RATE_LIMIT_PER_MINUTE` | optional | Per-IP cap on `/api/proxy/*`. Default 30. |
 
 The site works without any of these — the optional features hide gracefully.
 
@@ -182,7 +182,7 @@ feat(features): add bulk key tester with csv export
 feat(features): add comparison, playground, rate-limit calc, webhook validator, status indicator
 feat(features): add shareable redacted result links and rotation reminder via signed jwt
 feat(features): add postman, insomnia, and bruno collection exports
-feat(cli): add npx keyforge with validate, models, bench commands
+feat(cli): add npx apikit with validate, models, bench commands
 feat(security): add privacy, security, and security.txt surfaces
 test: add vitest unit tests for registry, csv, webhooks, jwt and playwright e2e for homepage and provider flows
 ci: add github actions for typecheck, lint, unit, e2e, lighthouse

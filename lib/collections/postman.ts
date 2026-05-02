@@ -8,7 +8,7 @@ export function postmanCollection(adapter: ProviderAdapter) {
   return {
     info: {
       _postman_id: cryptoUUID(),
-      name: `${adapter.name} (KeyForge)`,
+      name: `${adapter.name} (APIKit)`,
       description: `Validate, list models, and run a sample chat for the ${adapter.name} API.`,
       schema: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     },

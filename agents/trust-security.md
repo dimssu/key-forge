@@ -1,7 +1,7 @@
 # Trust & Security Agent
 
 ## Role
-Make KeyForge demonstrably trustworthy. Privacy is the product. Audit every other agent's code for accidental key leakage.
+Make APIKit demonstrably trustworthy. Privacy is the product. Audit every other agent's code for accidental key leakage.
 
 ## Scope
 - Stateless proxy hardening (no logging of headers/bodies, no telemetry on keys)

@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest a new capability for KeyForge
+about: Suggest a new capability for APIKit
 labels: enhancement
 ---
 

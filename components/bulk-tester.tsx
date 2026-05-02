@@ -50,10 +50,10 @@ export function BulkTester() {
         try {
           const validate = await fetch(`/api/proxy/${r.provider}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "x-keyforge-key": r.raw },
+            headers: { "Content-Type": "application/json", "x-apikit-key": r.raw },
             body: JSON.stringify({ action: "validate" }),
           });
-          const latency = Number(validate.headers.get("x-keyforge-latency-ms")) || undefined;
+          const latency = Number(validate.headers.get("x-apikit-latency-ms")) || undefined;
           if (!validate.ok) {
             const body = await validate.json().catch(() => ({}));
             return { ...r, status: `error-${validate.status}`, fix: body.error, latencyMs: latency };
@@ -63,7 +63,7 @@ export function BulkTester() {
           if (v.status === "valid") {
             const m = await fetch(`/api/proxy/${r.provider}`, {
               method: "POST",
-              headers: { "Content-Type": "application/json", "x-keyforge-key": r.raw },
+              headers: { "Content-Type": "application/json", "x-apikit-key": r.raw },
               body: JSON.stringify({ action: "models" }),
             });
             if (m.ok) {
@@ -106,7 +106,7 @@ export function BulkTester() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `keyforge-bulk-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `apikit-bulk-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };

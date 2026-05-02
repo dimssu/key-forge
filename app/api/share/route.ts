@@ -37,7 +37,7 @@ const Body = z.object({
 export async function POST(req: Request) {
   if (!isSigningEnabled()) {
     return NextResponse.json(
-      { error: "Sharing is disabled. Set KEYFORGE_SIGNING_SECRET to enable." },
+      { error: "Sharing is disabled. Set APIKIT_SIGNING_SECRET to enable." },
       { status: 503 }
     );
   }

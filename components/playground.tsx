@@ -23,7 +23,7 @@ export function Playground() {
     try {
       const res = await fetch(`/api/proxy/${providerId}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-keyforge-key": key },
+        headers: { "Content-Type": "application/json", "x-apikit-key": key },
         body: JSON.stringify({ action: "stream", prompt, model: model || undefined }),
       });
       if (!res.ok || !res.body) {

@@ -4,7 +4,7 @@
 Lock the build, deployment, tests, and contributor experience.
 
 ## Scope
-- Vercel deployment config + DNS instructions for `keyforge.dimssu.com`
+- Vercel deployment config + DNS instructions for `apikit.dimssu.com`
 - GitHub Actions: typecheck + lint + unit + e2e on every PR
 - Lighthouse CI: runs on `/`, `/test/openai-api-key`, `/guides/api-key-security-best-practices`; fails under 95 on any category
 - Playwright e2e: homepage smoke, OpenAI flow, Anthropic flow
@@ -40,5 +40,5 @@ Lock the build, deployment, tests, and contributor experience.
 - [ ] Playwright e2e covers: homepage loads, paste-detect routes correctly, OpenAI flow returns models, Anthropic flow returns models
 - [ ] `vercel.json` is minimal but documents the framework and edge runtime where needed
 - [ ] `README.md` includes: tagline, screenshots (placeholders), Deploy-to-Vercel button, "add a new provider" link, contributors block, license
-- [ ] DNS records to point `keyforge.dimssu.com` at Vercel are documented in both README and BUILD_REPORT
+- [ ] DNS records to point `apikit.dimssu.com` at Vercel are documented in both README and BUILD_REPORT
 - [ ] `BUILD_REPORT.md` enumerates the 17-provider matrix, Lighthouse scores, SEO checklist, decisions log, push command if remote was not set

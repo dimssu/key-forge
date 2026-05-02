@@ -1,6 +1,6 @@
-# Contributing to KeyForge
+# Contributing to APIKit
 
-Thanks for considering a contribution. KeyForge is small enough that one person can hold the whole codebase in their head — let's keep it that way.
+Thanks for considering a contribution. APIKit is small enough that one person can hold the whole codebase in their head — let's keep it that way.
 
 ## Local setup
 
@@ -11,7 +11,7 @@ pnpm dev
 
 You don't need any environment variables to run the core key-testing flow. The optional features (rotation reminders, share links) require:
 
-- `KEYFORGE_SIGNING_SECRET` — generate with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`.
+- `APIKIT_SIGNING_SECRET` — generate with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`.
 - `RESEND_API_KEY` — only needed for reminder emails.
 
 The reminder UI auto-hides when these are unset, so you can develop everything else without them.

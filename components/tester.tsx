@@ -31,7 +31,7 @@ export function Tester({ provider }: TesterProps) {
     async (action: "validate" | "models" | "bench" | "quota", k: string, samples?: number) => {
       const res = await fetch(`/api/proxy/${provider.id}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-keyforge-key": k },
+        headers: { "Content-Type": "application/json", "x-apikit-key": k },
         body: JSON.stringify({ action, samples }),
       });
       if (!res.ok) {
@@ -96,7 +96,7 @@ export function Tester({ provider }: TesterProps) {
       const body = await res.json().catch(() => ({}));
       toast({
         title: "Share unavailable",
-        description: body.error ?? "Set KEYFORGE_SIGNING_SECRET to enable sharing.",
+        description: body.error ?? "Set APIKIT_SIGNING_SECRET to enable sharing.",
         variant: "destructive",
       });
       return;

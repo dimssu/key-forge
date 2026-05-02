@@ -24,7 +24,7 @@
 | ollama | `ollama.ts` | Host-based, no key. |
 
 ## Assumptions
-- Composite credentials (Azure, Bedrock) accept JSON in the `x-keyforge-key` header.
+- Composite credentials (Azure, Bedrock) accept JSON in the `x-apikit-key` header.
 - For providers that do not expose a `/models` endpoint (Perplexity), we ship a curated static list.
 - Latency benchmark uses the cheapest authenticated endpoint — usually `/models`.
 - We never include the key in error messages — only HTTP status + a generic fix line.

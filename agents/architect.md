@@ -29,7 +29,7 @@ None. Architect runs first.
 - [ ] `pnpm install && pnpm dev` boots without warnings
 - [ ] Visiting `/` renders a placeholder homepage with the registry-driven provider list
 - [ ] Visiting `/test/openai-api-key` renders the test shell
-- [ ] `POST /api/proxy/openai` with `x-keyforge-key` header forwards to OpenAI and returns `{ status, data, latencyMs }`
+- [ ] `POST /api/proxy/openai` with `x-apikit-key` header forwards to OpenAI and returns `{ status, data, latencyMs }`
 - [ ] `lib/providers/_registry.ts` exports a typed array consumed everywhere downstream
 - [ ] No keys are logged anywhere; `route.ts` audit confirms no `console.log` of headers/bodies
 - [ ] `pnpm build` succeeds and emits the expected static `/test/openai-api-key` page

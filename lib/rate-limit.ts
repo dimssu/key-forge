@@ -15,7 +15,7 @@ export function check(
   ip: string,
   opts: { perMinute?: number; windowMs?: number } = {}
 ): RateLimitResult {
-  const limit = opts.perMinute ?? Number(process.env.KEYFORGE_RATE_LIMIT_PER_MINUTE ?? 30);
+  const limit = opts.perMinute ?? Number(process.env.APIKIT_RATE_LIMIT_PER_MINUTE ?? 30);
   const window = opts.windowMs ?? 60_000;
   const now = Date.now();
   const arr = buckets.get(ip) ?? [];

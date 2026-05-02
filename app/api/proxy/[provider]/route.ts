@@ -18,7 +18,7 @@ const Body = z.object({
 /**
  * Stateless proxy for provider adapter calls.
  *
- * The API key MUST arrive in the `x-keyforge-key` header. It is read once,
+ * The API key MUST arrive in the `x-apikit-key` header. It is read once,
  * passed straight to the adapter, and discarded. We never persist, log, or
  * echo it back. Errors return generic messages — never the auth header or
  * request body.
@@ -38,9 +38,9 @@ export async function POST(req: Request, ctx: { params: { provider: string } }) 
     return NextResponse.json({ error: "Unknown provider" }, { status: 404 });
   }
 
-  const key = req.headers.get("x-keyforge-key");
+  const key = req.headers.get("x-apikit-key");
   if (!key && !adapter.hostBased) {
-    return NextResponse.json({ error: "Missing x-keyforge-key header" }, { status: 400 });
+    return NextResponse.json({ error: "Missing x-apikit-key header" }, { status: 400 });
   }
 
   let parsed: z.infer<typeof Body>;
@@ -99,7 +99,7 @@ export async function POST(req: Request, ctx: { params: { provider: string } }) 
           headers: {
             "Content-Type": "text/plain; charset=utf-8",
             "Cache-Control": "no-store",
-            "x-keyforge-latency-ms": String(Math.round(performance.now() - start)),
+            "x-apikit-latency-ms": String(Math.round(performance.now() - start)),
           },
         });
       }
@@ -113,7 +113,7 @@ function jsonWithLatency<T>(body: T, start: number): Response {
   const ms = Math.round(performance.now() - start);
   return NextResponse.json(body, {
     headers: {
-      "x-keyforge-latency-ms": String(ms),
+      "x-apikit-latency-ms": String(ms),
       "Cache-Control": "no-store",
     },
   });

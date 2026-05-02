@@ -1,6 +1,6 @@
 ---
 name: New provider request
-about: Add a new LLM provider to KeyForge
+about: Add a new LLM provider to APIKit
 labels: provider
 ---
 

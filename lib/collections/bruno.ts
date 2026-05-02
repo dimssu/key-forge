@@ -7,7 +7,7 @@ import type { ProviderAdapter } from "../providers/_types";
 export function brunoExport(adapter: ProviderAdapter) {
   return {
     version: "1",
-    name: `${adapter.name} (KeyForge)`,
+    name: `${adapter.name} (APIKit)`,
     type: "collection",
     items: [
       {

@@ -8,12 +8,12 @@ export function insomniaExport(adapter: ProviderAdapter) {
     _type: "export",
     __export_format: 4,
     __export_date: new Date().toISOString(),
-    __export_source: "keyforge",
+    __export_source: "apikit",
     resources: [
       {
         _id: wsId,
         _type: "workspace",
-        name: `${adapter.name} (KeyForge)`,
+        name: `${adapter.name} (APIKit)`,
         scope: "collection",
       },
       {

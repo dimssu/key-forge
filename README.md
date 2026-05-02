@@ -1,8 +1,8 @@
-# KeyForge
+# APIKit
 
 **Test any LLM API key in seconds.**
 
-KeyForge is a free, universal LLM API key tester. Paste an API key from any major provider, instantly verify it works, see which models you have access to, benchmark latency, and copy ready-to-use cURL / Python / Node snippets.
+APIKit is a free, universal LLM API key tester. Paste an API key from any major provider, instantly verify it works, see which models you have access to, benchmark latency, and copy ready-to-use cURL / Python / Node snippets.
 
 Zero signup. Open source. MIT-licensed.
 
@@ -21,7 +21,7 @@ Zero signup. Open source. MIT-licensed.
 
 ## Why
 
-Every major LLM has its own dashboard, key shape, and validation flow. Switching between OpenAI, Anthropic, Gemini, Groq, and a dozen others means a dozen browser tabs, a dozen `curl` invocations, and a dozen ways to leak a key into a log. KeyForge gives you one place to:
+Every major LLM has its own dashboard, key shape, and validation flow. Switching between OpenAI, Anthropic, Gemini, Groq, and a dozen others means a dozen browser tabs, a dozen `curl` invocations, and a dozen ways to leak a key into a log. APIKit gives you one place to:
 
 - Validate a pasted key against the upstream provider.
 - See which models the key can call.
@@ -47,7 +47,7 @@ pnpm dev
 
 The site runs at <http://localhost:3000>. No env vars are required for the core flow. Optional env vars (in `.env.local`):
 
-- `KEYFORGE_SIGNING_SECRET` — enables shareable redacted result URLs and rotation reminders.
+- `APIKIT_SIGNING_SECRET` — enables shareable redacted result URLs and rotation reminders.
 - `RESEND_API_KEY` — enables the rotation-reminder email feature (hidden when unset).
 - `NEXT_PUBLIC_SITE_URL` — overrides the canonical / OG base URL (defaults to `https://keyforge.dimssu.com`).
 
@@ -93,17 +93,17 @@ Set under **Settings → Environment Variables**:
 | Name                          | Required? | Purpose                                            |
 | ----------------------------- | --------- | -------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL`        | no        | Defaults to `https://keyforge.dimssu.com`.         |
-| `KEYFORGE_SIGNING_SECRET`     | optional  | Enables share links + rotation reminders.          |
+| `APIKIT_SIGNING_SECRET`     | optional  | Enables share links + rotation reminders.          |
 | `RESEND_API_KEY`              | optional  | Enables rotation reminder emails.                  |
 | `REMINDER_FROM_EMAIL`         | optional  | Defaults to `no-reply@keyforge.dimssu.com`.        |
-| `KEYFORGE_RATE_LIMIT_PER_MINUTE` | optional | Per-IP rate limit on `/api/proxy/*`. Default 30. |
+| `APIKIT_RATE_LIMIT_PER_MINUTE` | optional | Per-IP rate limit on `/api/proxy/*`. Default 30. |
 
 ## CLI companion
 
 ```sh
-KEYFORGE_KEY=sk-... npx keyforge validate openai
-KEYFORGE_KEY=sk-ant-... npx keyforge models anthropic
-KEYFORGE_KEY=gsk_... npx keyforge bench groq 10
+APIKIT_KEY=sk-... npx apikit validate openai
+APIKIT_KEY=sk-ant-... npx apikit models anthropic
+APIKIT_KEY=gsk_... npx apikit bench groq 10
 ```
 
 See [`cli/README.md`](cli/README.md).
@@ -135,7 +135,7 @@ lib/
   rate-limit, jwt, share, status-pages, csv, webhooks, snippets
 content/, lib/guides-content.ts  # Long-form copy
 agents/                     # Per-agent specs + completion logs
-cli/                        # `npx keyforge` companion
+cli/                        # `npx apikit` companion
 ```
 
 ## Contributing
@@ -150,4 +150,4 @@ MIT. Use it, fork it, deploy your own copy. See [LICENSE](LICENSE).
 
 - [@dimssu](https://github.com/dimssu) — author + maintainer
 
-If you submit a PR that lands, you'll be added here. KeyForge is a community project; we especially welcome new provider adapters and guide articles.
+If you submit a PR that lands, you'll be added here. APIKit is a community project; we especially welcome new provider adapters and guide articles.

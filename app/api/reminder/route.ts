@@ -19,7 +19,7 @@ function reminderEnabled(): boolean {
 export async function POST(req: Request) {
   if (!reminderEnabled()) {
     return NextResponse.json(
-      { error: "Reminder feature is disabled. Set RESEND_API_KEY and KEYFORGE_SIGNING_SECRET." },
+      { error: "Reminder feature is disabled. Set RESEND_API_KEY and APIKIT_SIGNING_SECRET." },
       { status: 503 }
     );
   }
@@ -39,8 +39,8 @@ export async function POST(req: Request) {
   // Schedule by sending an immediate confirmation email; the reminder itself is sent
   // later by a cron / scheduled job calling the Resend API with the same token signature.
   const from = process.env.REMINDER_FROM_EMAIL ?? "no-reply@keyforge.dimssu.com";
-  const subject = `KeyForge — confirm rotation reminder for ${body.providerId}`;
-  const text = `You asked KeyForge to remind you to rotate your ${body.providerId} key in ${body.days} days.
+  const subject = `APIKit — confirm rotation reminder for ${body.providerId}`;
+  const text = `You asked APIKit to remind you to rotate your ${body.providerId} key in ${body.days} days.
 
 Click to confirm: ${confirmUrl}
 

@@ -9,9 +9,9 @@
 - `.env.example`, `.eslintrc.json`, `tsconfig.json`, `tailwind.config.ts`, `postcss.config.mjs`.
 
 ## Assumptions
-- Brand defaults: KeyForge / "Test any LLM API key in seconds." / `keyforge.dimssu.com`.
+- Brand defaults: APIKit / "Test any LLM API key in seconds." / `apikit.dimssu.com`.
 - Default theme is dark; light toggle persists via `next-themes`.
-- Key arrives in `x-keyforge-key` header (not Authorization) so the proxy doesn't accidentally forward our auth headers upstream.
+- Key arrives in `x-apikit-key` header (not Authorization) so the proxy doesn't accidentally forward our auth headers upstream.
 - Composite credentials (Azure OpenAI, AWS Bedrock) are JSON-encoded in the same header.
 
 ## Handoff to next agents

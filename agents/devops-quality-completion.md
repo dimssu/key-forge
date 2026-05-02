@@ -2,7 +2,7 @@
 
 ## What was set up
 - `vercel.json` (Next.js framework, pnpm install command).
-- DNS guidance in README + BUILD_REPORT (CNAME `keyforge` → `cname.vercel-dns.com`).
+- DNS guidance in README + BUILD_REPORT (CNAME `apikit` → `cname.vercel-dns.com`).
 - `.github/workflows/ci.yml` — typecheck + lint + Vitest unit + Playwright e2e on every PR and push to main.
 - `.github/workflows/lighthouse.yml` — Lighthouse CI on three URLs with 95 thresholds.
 - `lighthouserc.json` — categories thresholds at 0.95 each.

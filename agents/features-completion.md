@@ -14,7 +14,7 @@
 | "Is it down?" indicator | ✅ | `/tools/status` + `lib/status-pages.ts` (cached 5 min) |
 | Shareable, key-redacted result URLs | ✅ | `/api/share` + `/share/[token]` (signed JWT, last 4 chars only) |
 | Postman / Insomnia / Bruno collection export | ✅ | `/api/collections/[provider]/[format]` |
-| CLI companion (`npx keyforge`) | ✅ | `cli/` workspace with validate / models / bench / providers commands |
+| CLI companion (`npx apikit`) | ✅ | `cli/` workspace with validate / models / bench / providers commands |
 
 ## Assumptions
 - Reminders use Resend; falls back to feature-hidden when `RESEND_API_KEY` is unset.

@@ -1,13 +1,13 @@
 import { SignJWT, jwtVerify } from "jose";
 
 function secret(): Uint8Array | null {
-  const raw = process.env.KEYFORGE_SIGNING_SECRET;
+  const raw = process.env.APIKIT_SIGNING_SECRET;
   if (!raw) return null;
   return new TextEncoder().encode(raw);
 }
 
 export function isSigningEnabled(): boolean {
-  return Boolean(process.env.KEYFORGE_SIGNING_SECRET);
+  return Boolean(process.env.APIKIT_SIGNING_SECRET);
 }
 
 /** Sign a JWT with HS256. Returns null if no signing secret configured. */
@@ -20,7 +20,7 @@ export async function signToken(
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setIssuer("keyforge")
+    .setIssuer("apikit")
     .setExpirationTime(expiresIn)
     .sign(s);
 }
@@ -31,7 +31,7 @@ export async function verifyToken<T extends Record<string, unknown> = Record<str
   const s = secret();
   if (!s) return null;
   try {
-    const { payload } = await jwtVerify(token, s, { issuer: "keyforge" });
+    const { payload } = await jwtVerify(token, s, { issuer: "apikit" });
     return payload as T;
   } catch {
     return null;

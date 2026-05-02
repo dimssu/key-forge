@@ -16,7 +16,7 @@ Implement every advanced feature the spec calls for. No exceptions, no "v2 later
 10. **"Is it down?" indicator** — pulls each provider's public status page; cached 5 minutes
 11. **Shareable redacted result URLs** — encode result + last 4 chars of key only; signed JWT
 12. **Postman / Insomnia / Bruno collection export** — one button per provider
-13. **CLI companion** — `npx keyforge` stub with `validate <provider>`, `models <provider>`, `bench <provider>` commands
+13. **CLI companion** — `npx apikit` stub with `validate <provider>`, `models <provider>`, `bench <provider>` commands
 
 ## Files Owned
 - `app/bulk/page.tsx`, `components/bulk-tester.tsx`
@@ -29,7 +29,7 @@ Implement every advanced feature the spec calls for. No exceptions, no "v2 later
 - `app/api/reminder/route.ts`, `app/api/reminder/confirm/route.ts`
 - `lib/csv.ts`, `lib/jwt.ts`, `lib/status-pages.ts`, `lib/webhooks.ts`
 - `lib/collections/postman.ts`, `lib/collections/insomnia.ts`, `lib/collections/bruno.ts`
-- `cli/package.json`, `cli/bin/keyforge.ts`, `cli/src/*`
+- `cli/package.json`, `cli/bin/apikit.ts`, `cli/src/*`
 
 ## Dependencies
 - Architect (proxy, registry)
@@ -49,4 +49,4 @@ Implement every advanced feature the spec calls for. No exceptions, no "v2 later
 - [ ] Status indicator returns "operational / degraded / down / unknown" for each provider
 - [ ] Share URL never echoes the full key — only last 4 chars
 - [ ] Collection exports import cleanly into Postman, Insomnia, Bruno
-- [ ] `pnpm --filter cli run build` builds the CLI; `node cli/dist/keyforge.js --help` prints usage
+- [ ] `pnpm --filter cli run build` builds the CLI; `node cli/dist/apikit.js --help` prints usage
