@@ -1,0 +1,45 @@
+export const labels = {
+  testKey: "Test key",
+  testing: "Testing…",
+  copy: "Copy",
+  copied: "Copied",
+  paste: "Paste a key to start",
+  pasteShortcut: "or press ⌘V",
+  showSnippets: "Show snippets",
+  hideSnippets: "Hide snippets",
+  rawJson: "Raw JSON",
+  modelsAccessible: "Models accessible",
+  latency: "Latency",
+  status: "Status",
+  bench: "Run latency benchmark",
+  benchRunning: "Running 5 pings…",
+  share: "Share redacted result",
+  exportCsv: "Export CSV",
+  exportPostman: "Postman collection",
+  exportInsomnia: "Insomnia collection",
+  exportBruno: "Bruno collection",
+  rotateReminder: "Remind me to rotate this key",
+  rotateReminderDisabled: "Reminder feature is disabled — set RESEND_API_KEY to enable.",
+} as const;
+
+export const errorFix: Record<number, string> = {
+  400: "Request was malformed. Double-check the body shape against the provider docs.",
+  401: "Key is invalid or revoked. Generate a new key from the provider console.",
+  403: "Key is valid but lacks permission for this resource. Check project / org scope.",
+  404: "Endpoint not found. The provider may have moved or renamed this resource.",
+  408: "Request timed out. Try again, or check the provider status page.",
+  409: "Conflict. The resource is in a state that doesn't allow this operation.",
+  413: "Payload too large. Try a smaller prompt or fewer tokens.",
+  422: "Validation failed. The provider rejected one of the fields.",
+  429: "Rate limit hit. Wait a moment and retry, or upgrade your tier.",
+  500: "Provider returned a server error. Check their status page.",
+  502: "Bad gateway. The provider edge is having trouble — retry shortly.",
+  503: "Service unavailable. Wait and retry.",
+  504: "Gateway timeout. The upstream took too long; try a smaller request.",
+};
+
+export const emptyStates = {
+  noKey: "Paste an API key above. We'll detect the provider, list your models, and benchmark latency.",
+  noModels: "No models came back. Either the key has no model access, or the provider hides them behind a billing setup step.",
+  noResults: "No results yet — paste a key and press ⌘+Enter to run a test.",
+} as const;
