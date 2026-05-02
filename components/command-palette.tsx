@@ -55,13 +55,13 @@ export function CommandPaletteTrigger() {
         <kbd className="ml-2 rounded border border-border bg-muted px-1.5 py-0.5 text-[10px]">⌘K</kbd>
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-xl p-0">
-          <Command label="Command Palette" className="rounded-md">
-            <div className="flex items-center border-b px-3">
+        <DialogContent className="max-w-xl overflow-hidden p-0">
+          <Command label="Command Palette" className="rounded-lg">
+            <div className="flex items-center border-b border-border/60 px-3">
               <Search className="mr-2 h-4 w-4 shrink-0 text-muted-foreground" />
               <Command.Input
                 placeholder="Search providers, tools, guides…"
-                className="h-12 w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                className="h-12 w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
               />
             </div>
             <Command.List className="max-h-80 overflow-y-auto p-2">
