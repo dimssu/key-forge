@@ -1,31 +1,15 @@
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Sparkles, Zap } from "lucide-react";
+import { Hero } from "@/components/hero";
 import { ProviderGrid } from "@/components/provider-grid";
-import { PrivacyBanner } from "@/components/privacy-banner";
-import { KeyInput } from "@/components/key-input";
 import { Button } from "@/components/ui/button";
 import { GUIDES } from "@/lib/guides";
 import { softwareApp } from "@/lib/seo/jsonld";
 
 export default function Home() {
   return (
-    <div className="space-y-12">
-      <section className="space-y-6">
-        <div className="space-y-3">
-          <span className="inline-flex items-center gap-1 rounded-full border bg-card px-2.5 py-0.5 text-xs">
-            <Sparkles className="h-3 w-3" /> Free, open source, zero signup
-          </span>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Test any LLM API key in seconds.
-          </h1>
-          <p className="max-w-2xl text-muted-foreground">
-            Paste a key from OpenAI, Anthropic, Gemini, Groq, or 13 more providers. Verify it works, see
-            which models you can call, benchmark latency, and copy ready-to-use snippets.
-          </p>
-        </div>
-        <KeyInput detectAndRoute />
-        <PrivacyBanner />
-      </section>
+    <div className="space-y-20">
+      <Hero />
 
       <section className="grid gap-3 sm:grid-cols-3">
         <Highlight
@@ -47,11 +31,20 @@ export default function Home() {
 
       <ProviderGrid />
 
-      <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Guides</h2>
-          <Button asChild variant="link" size="sm">
-            <Link href="/guides">All guides <ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
+      <section className="space-y-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-1.5">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground/70">
+              Guides
+            </p>
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Practical, opinionated, no fluff.
+            </h2>
+          </div>
+          <Button asChild variant="ghost" size="sm" className="self-start sm:self-end">
+            <Link href="/guides">
+              All guides <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+            </Link>
           </Button>
         </div>
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -59,10 +52,18 @@ export default function Home() {
             <li key={g.slug}>
               <Link
                 href={`/guides/${g.slug}`}
-                className="block rounded-lg border border-border/60 bg-card p-4 transition-colors hover:border-foreground/30"
+                className="ring-gradient surface-raised group relative block h-full overflow-hidden rounded-lg p-5 transition-transform duration-200 hover:-translate-y-0.5"
               >
-                <h3 className="font-medium">{g.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{g.description}</p>
+                <p className="font-mono text-[0.7rem] text-muted-foreground">
+                  /guides/{g.slug}
+                </p>
+                <h3 className="mt-3 text-lg font-medium tracking-tight">{g.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {g.description}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground/80 transition-colors group-hover:text-foreground">
+                  Read <ArrowRight className="h-3.5 w-3.5" />
+                </span>
               </Link>
             </li>
           ))}
@@ -77,11 +78,24 @@ export default function Home() {
   );
 }
 
-function Highlight({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
+function Highlight({
+  icon,
+  title,
+  desc,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}) {
   return (
-    <div className="rounded-lg border border-border/60 bg-card p-4">
-      <div className="mb-2 flex items-center gap-2 text-foreground">{icon}<span className="font-medium">{title}</span></div>
-      <p className="text-sm text-muted-foreground">{desc}</p>
+    <div className="surface-raised flex flex-col gap-2 rounded-lg p-5">
+      <div className="flex items-center gap-2 text-foreground">
+        <span className="grid h-7 w-7 place-items-center rounded-md bg-brand/10 text-brand">
+          {icon}
+        </span>
+        <span className="font-medium">{title}</span>
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground">{desc}</p>
     </div>
   );
 }

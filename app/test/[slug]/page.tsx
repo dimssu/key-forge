@@ -6,6 +6,7 @@ import { providers, getProviderBySlug } from "@/lib/providers/_registry";
 import { Tester } from "@/components/tester";
 import { PrivacyBanner } from "@/components/privacy-banner";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ProviderGlyph } from "@/components/provider-glyph";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { breadcrumbs as breadcrumbLD, faqPage, howTo, softwareApp } from "@/lib/seo/jsonld";
@@ -65,16 +66,32 @@ export default function ProviderTestPage({ params }: Params) {
         ]}
       />
 
-      <header className="space-y-3">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          {(adapter.categories ?? []).map((c) => (
-            <Badge key={c} variant="outline" className="text-[10px]">{c}</Badge>
-          ))}
+      <header className="space-y-5">
+        <div className="flex items-center gap-4">
+          <ProviderGlyph id={adapter.id} name={adapter.name} size={56} className="!text-xl" />
+          <div className="space-y-1">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+              {adapter.id}
+            </p>
+            <div className="flex items-center gap-1.5">
+              {(adapter.categories ?? []).map((c) => (
+                <Badge
+                  key={c}
+                  variant="outline"
+                  className="border-border/60 bg-background/40 text-[10px] font-medium text-muted-foreground"
+                >
+                  {c}
+                </Badge>
+              ))}
+            </div>
+          </div>
         </div>
-        <h1 className="text-3xl font-semibold tracking-tight">
-          Test your {adapter.name} API key
+        <h1 className="text-display-lg font-semibold tracking-tight">
+          Test your {adapter.name} API key.
         </h1>
-        <p className="max-w-2xl text-muted-foreground">{content.lede}</p>
+        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {content.lede}
+        </p>
         <div className="flex flex-wrap gap-2">
           <Button asChild variant="outline" size="sm">
             <a href={adapter.consoleUrl} target="_blank" rel="noreferrer">

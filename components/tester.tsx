@@ -160,8 +160,17 @@ export function Tester({ provider }: TesterProps) {
       )}
 
       {snippet && (
-        <section className="space-y-2">
-          <h2 className="text-sm font-medium">Ready-to-paste snippets</h2>
+        <section className="space-y-3 pt-2">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              Ready-to-paste snippets
+            </h2>
+            {key && (
+              <span className="font-mono text-[10px] text-muted-foreground/60">
+                key redacted &middot; {redactKey(key)}
+              </span>
+            )}
+          </div>
           <SnippetTabs snippet={snippet} />
         </section>
       )}
