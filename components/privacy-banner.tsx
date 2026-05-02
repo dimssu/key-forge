@@ -3,22 +3,21 @@ import Link from "next/link";
 
 export function PrivacyBanner() {
   return (
-    <div
+    <p
       role="note"
       aria-label="Privacy notice"
-      className="flex items-start gap-3 rounded-lg border border-success/30 bg-success/[0.06] px-3.5 py-2.5 text-sm"
+      className="flex items-center gap-1.5 px-1 text-xs text-muted-foreground/80"
     >
-      <ShieldCheck className="mt-0.5 h-4 w-4 flex-none text-success" aria-hidden />
-      <p className="text-muted-foreground">
-        Stateless proxy &middot; never logs, stores, or persists your key.{" "}
+      <ShieldCheck className="h-3 w-3 flex-none text-success/80" aria-hidden />
+      <span>
+        Stateless proxy — keys never logged, stored, or persisted.{" "}
         <Link
           href="/privacy"
-          className="font-medium text-foreground underline decoration-border decoration-1 underline-offset-[3px] transition-colors hover:decoration-foreground"
+          className="text-foreground/80 underline decoration-border decoration-1 underline-offset-2 transition-colors hover:decoration-foreground"
         >
-          See exactly what happens to it
+          What happens to your key →
         </Link>
-        .
-      </p>
-    </div>
+      </span>
+    </p>
   );
 }

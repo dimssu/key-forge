@@ -8,7 +8,7 @@ import { softwareApp } from "@/lib/seo/jsonld";
 
 export default function Home() {
   return (
-    <div className="space-y-20">
+    <div className="space-y-14">
       <Hero />
 
       <section className="grid gap-3 sm:grid-cols-3">
