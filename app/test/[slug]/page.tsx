@@ -13,7 +13,7 @@ import { buildMetadata } from "@/lib/seo/meta";
 import { getProviderContent } from "@/lib/provider-content";
 
 interface Params {
-  params: { provider: string };
+  params: { slug: string };
 }
 
 function parseSlug(p: string): string | null {
@@ -22,13 +22,13 @@ function parseSlug(p: string): string | null {
 }
 
 export function generateStaticParams() {
-  return providers.map((p) => ({ provider: `${p.slug}-api-key` }));
+  return providers.map((p) => ({ slug: `${p.slug}-api-key` }));
 }
 
 export const dynamicParams = false;
 
 export function generateMetadata({ params }: Params): Metadata {
-  const slug = parseSlug(params.provider);
+  const slug = parseSlug(params.slug);
   const adapter = slug ? getProviderBySlug(slug) : undefined;
   if (!adapter) return buildMetadata({ title: "Provider not found" });
   const title = `Test your ${adapter.name} API key`;
@@ -49,7 +49,7 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export default function ProviderTestPage({ params }: Params) {
-  const slug = parseSlug(params.provider);
+  const slug = parseSlug(params.slug);
   const adapter = slug ? getProviderBySlug(slug) : undefined;
   if (!adapter) notFound();
 

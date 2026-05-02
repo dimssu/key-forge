@@ -44,3 +44,4 @@ test-results/
 # Misc
 *.tsbuildinfo
 next-env.d.ts
+.vercel
