@@ -70,6 +70,9 @@ export function buildMetadata({
       images: [og],
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    verification: {
+      google: "F9HpPj5GZXHvbjJl1Gwwup09eTVqPLj00gp3Md613m4",
+    },
     other: {
       "application-name": "APIKit",
       "apple-mobile-web-app-title": "APIKit",
