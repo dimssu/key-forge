@@ -39,7 +39,7 @@ export default function SecurityPage() {
           <li><strong>Strict CSP.</strong> No third-party scripts. No inline event handlers. <code>frame-ancestors &apos;none&apos;</code>.</li>
           <li><strong>X-Frame-Options DENY, X-Content-Type-Options nosniff, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy locked down.</strong></li>
           <li><strong>Rate limiting.</strong> Per-IP sliding-window limit on <code>/api/proxy/*</code> at 30 RPM by default. Best-effort across regions; not designed as anti-abuse infrastructure at scale.</li>
-          <li><strong>No telemetry.</strong> No analytics SDK, no Sentry, no third-party error tracking that might capture headers.</li>
+          <li><strong>No third-party telemetry.</strong> First-party page-view analytics only (Vercel Analytics, served from this origin) — no cookies, no fingerprinting, no API-key data. No Sentry, no third-party error tracking that might capture headers. Full breakdown on the <a href="/privacy">privacy page</a>.</li>
           <li><strong>Stateless server proxy.</strong> No database, no queue, no persistent storage adjacent to the proxy route.</li>
           <li><strong>Code audit.</strong> The <code>trust-security-completion.md</code> file in the agents directory documents the grep-based audit pass: <code>console.log</code>, <code>localStorage</code>, <code>sessionStorage</code>, error-message echo of headers — all checked.</li>
         </ul>

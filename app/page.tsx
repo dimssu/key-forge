@@ -13,7 +13,11 @@ const HOMEPAGE_FAQS = [
   },
   {
     q: "What does APIKit do with my API key?",
-    a: "Nothing — beyond forwarding it once to the upstream provider so we can read the response. The proxy is stateless: keys are never logged, stored, or persisted. There is no database, no analytics on key values, and no third-party scripts. The full code is open source on GitHub.",
+    a: "Nothing — beyond forwarding it once to the upstream provider so we can read the response. The proxy is stateless: keys are never logged, stored, or persisted. There is no database and no analytics on key values. The full code is open source on GitHub.",
+  },
+  {
+    q: "Does APIKit collect any analytics?",
+    a: "Yes — first-party page-view analytics via Vercel Analytics. We collect path visited, country (country-level only), device class, browser family, referrer host, an anonymous visitor counter, and Web Vitals. We do NOT set cookies, fingerprint, run third-party scripts, or touch your API keys, request bodies, or full IP. The script is served from this domain (no third-party origin). Full breakdown on the privacy page.",
   },
   {
     q: "Which LLM providers does APIKit support?",

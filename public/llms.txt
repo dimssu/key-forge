@@ -42,7 +42,7 @@ Hugging Face, Replicate, Ollama.
 ## Privacy and trust
 
 - Stateless server proxy — keys are forwarded once and discarded
-- No analytics, no third-party scripts, no fingerprinting
+- First-party page-view analytics (Vercel Analytics, same-origin); no cookies, no third-party scripts, no fingerprinting, no API-key data
 - Strict CSP, HSTS, X-Frame-Options DENY
 - Per-IP rate limiting on the proxy
 - security.txt at /.well-known/security.txt

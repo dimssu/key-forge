@@ -46,8 +46,28 @@ export default function PrivacyPage() {
         <h2>Browser-side storage</h2>
         <p>We use <code>localStorage</code> only to remember your theme preference. We use <code>sessionStorage</code> briefly for the paste-to-route handoff (the pasted key is stored once and immediately consumed by the destination page). We never set cookies tied to your key.</p>
 
+        <h2>Page-view analytics</h2>
+        <p>We run <strong>first-party page-view analytics</strong> via Vercel Analytics. The script is served from the same origin (your browser POSTs events to <code>/_vercel/insights/event</code> and <code>/_vercel/insights/vitals</code> on this domain — never to a third-party host). No cookies are set. No fingerprinting. No third-party scripts.</p>
+        <p><strong>What is collected, per page load:</strong></p>
+        <ul>
+          <li>The path you visited (e.g. <code>/test/openai-api-key</code>) and the referring page&apos;s host</li>
+          <li>Country at country level only (derived at the edge from your IP — the IP itself is not stored)</li>
+          <li>Device class (desktop / mobile / tablet) and browser family (Chrome / Firefox / Safari)</li>
+          <li>An anonymous, daily-rotated visitor counter (a hashed signal, not a persistent ID)</li>
+          <li>Web Vitals: LCP, INP, CLS, FCP, TTFB — to find slow pages and fix them</li>
+        </ul>
+        <p><strong>What is NOT collected:</strong></p>
+        <ul>
+          <li>Your API key, any prefix of it, or any redaction of it</li>
+          <li>Any request body sent to the proxy</li>
+          <li>Your full IP address, user agent string, or any cross-session identifier</li>
+          <li>Cookies of any kind</li>
+          <li>Mouse movements, clicks, scroll depth, or session replay</li>
+        </ul>
+        <p>If you want to verify, open your browser&apos;s Network tab and watch for the <code>/_vercel/insights/*</code> requests — that&apos;s the entire surface area of analytics on this site.</p>
+
         <h2>Third-party requests</h2>
-        <p>The browser only talks to the APIKit origin. No analytics, ad networks, font CDNs, or trackers. Outbound requests go from our server to the upstream provider you tested, and that's it.</p>
+        <p>The browser does not load any third-party scripts. No ad networks, no Google Analytics, no Sentry, no font CDNs (fonts are self-hosted via <code>next/font</code>), no trackers. Outbound requests go from our server to the upstream LLM provider you tested, and that&apos;s it.</p>
 
         <h2>Reporting a security issue</h2>
         <p>See <a href="/security">the security page</a> and <a href="/.well-known/security.txt">/.well-known/security.txt</a> for our disclosure contact.</p>
